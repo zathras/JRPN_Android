@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CalcState>
+	<!--WRPN CalcState v6.0 -->
+	<SaveOnExit>true</SaveOnExit>
+	<WordSize>16</WordSize>
+	<OpMode>Float</OpMode>
+	<ArithMode>TwosComp</ArithMode>
+	<FloatPrecision>3</FloatPrecision>
+	<Flags>
+		<Flag name="User0">false</Flag>
+		<Flag name="User1">false</Flag>
+		<Flag name="User2">false</Flag>
+		<Flag name="LeadingZeros">true</Flag>
+		<Flag name="Carry">false</Flag>
+		<Flag name="Overflow">false</Flag>
+	</Flags>
+	<Regs>
+		<Reg name="0">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name="1">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name="2">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name="3">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name="4">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name="5">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name="6">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name="7">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name="8">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name="9">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name="A">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name="B">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name="C">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name="D">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name="E">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name="F">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name=".0">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name=".1">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name=".2">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name=".3">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name=".4">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name=".5">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name=".6">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name=".7">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name=".8">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name=".9">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name=".A">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name=".B">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name=".C">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name=".D">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name=".E">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+		<Reg name=".F">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Reg>
+	</Regs>
+	<RegIndex>
+		<FVal>0</FVal>
+		<BiVal>0000000000000000</BiVal>
+	</RegIndex>
+	<Stacks>
+		<Stack name="T">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Stack>
+		<Stack name="Z">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Stack>
+		<Stack name="Y">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Stack>
+		<Stack name="X">
+			<FVal>0</FVal>
+			<BiVal>0000</BiVal>
+		</Stack>
+	</Stacks>
+	<RegLastX>
+		<FVal>0</FVal>
+		<BiVal>0000</BiVal>
+	</RegLastX>
+	<PrgmPosition>0</PrgmPosition>
+	<PrgmMemory />
+	<PrgmRetStack />
+</CalcState>

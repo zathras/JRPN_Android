@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:wrpn="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/my_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+
+    <com.emmetgray.wrpn.CalcFace
+        android:id="@+id/calc_face"
+        android:background="@mipmap/background"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <com.emmetgray.wrpn.DynamicEditText
+            android:id="@+id/tbDisplay"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_x="54dp"
+            android:layout_y="28dp"
+            android:focusable="false"
+            android:text="00000000 00000000 00000000 00000000 .b."
+            android:textSize="12dp"
+            android:typeface="monospace"
+            android:textStyle="bold"
+            android:saveEnabled="false"
+            wrpn:lengthThreshold="20"
+            wrpn:baseFontSize="10"
+            android:inputType="text"
+            android:background="#ffffff" />
+
+        <TextView
+            android:id="@+id/lbFKey"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_x="100dp"
+            android:layout_y="57dp"
+            android:text="f"
+            android:textColor="#000000"
+            android:textSize="7dp"
+            android:tag="100"/>
+
+        <TextView
+            android:id="@+id/lbGKey"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_x="155dp"
+            android:layout_y="57dp"
+            android:text="g"
+            android:textColor="#000000"
+            android:textSize="7dp"
+            android:tag="155"/>
+
+        <TextView
+            android:id="@+id/lbOverflow"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_x="210dp"
+            android:layout_y="57dp"
+            android:text="G"
+            android:textColor="#000000"
+            android:textSize="7dp"
+            android:tag="210"/>
+
+        <TextView
+            android:id="@+id/lbCarry"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_x="265dp"
+            android:layout_y="57dp"
+            android:text="C"
+            android:textColor="#000000"
+            android:textSize="7dp"
+            android:tag="265"/>
+
+        <TextView
+            android:id="@+id/lbPrgm"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_x="320dp"
+            android:layout_y="57dp"
+            android:gravity="center_horizontal"
+            android:tag="320"
+            android:text="PRGM"
+            android:textColor="#000000"
+            android:textSize="7dp" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonC"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="123dp"
+            android:layout_y="111dp"
+            wrpn:originalX="123"
+            wrpn:originalY="111"
+            wrpn:keyCode="12"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_c" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonD"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="169dp"
+            android:layout_y="111dp"
+            wrpn:originalX="169"
+            wrpn:originalY="111"
+            wrpn:keyCode="13"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_d" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonE"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="215dp"
+            android:layout_y="111dp"
+            wrpn:originalX="215"
+            wrpn:originalY="111"
+            wrpn:keyCode="14"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_e" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonDiv"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="445dp"
+            android:layout_y="111dp"
+            wrpn:originalX="445"
+            wrpn:originalY="111"
+            wrpn:keyCode="16"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_div" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButton9"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="399dp"
+            android:layout_y="111dp"
+            wrpn:originalX="399"
+            wrpn:originalY="111"
+            wrpn:keyCode="9"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_9" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButton8"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="353dp"
+            android:layout_y="111dp"
+            wrpn:originalX="353"
+            wrpn:originalY="111"
+            wrpn:keyCode="8"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_8" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButton7"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="307dp"
+            android:layout_y="111dp"
+            wrpn:originalX="307"
+            wrpn:originalY="111"
+            wrpn:keyCode="7"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_7" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonGTO"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="77dp"
+            android:layout_y="162dp"
+            wrpn:originalX="77"
+            wrpn:originalY="162"
+            wrpn:keyCode="34"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_gto" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonHEX"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="123dp"
+            android:layout_y="162dp"
+            wrpn:originalX="123"
+            wrpn:originalY="162"
+            wrpn:keyCode="35"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_hex" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonDEC"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="169dp"
+            android:layout_y="162dp"
+            wrpn:originalX="169"
+            wrpn:originalY="162"
+            wrpn:keyCode="36"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_dec" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonOCT"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="215dp"
+            android:layout_y="162dp"
+            wrpn:originalX="215"
+            wrpn:originalY="162"
+            wrpn:keyCode="37"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_oct" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonBIN"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="261dp"
+            android:layout_y="162dp"
+            wrpn:originalX="261"
+            wrpn:originalY="162"
+            wrpn:keyCode="38"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_bin" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonOn"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="31dp"
+            android:layout_y="264dp"
+            wrpn:originalX="31"
+            wrpn:originalY="264"
+            wrpn:keyCode="65"
+			android:onClick="GButton_Click"
+            android:src="@drawable/bn_on" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonRol"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="123dp"
+            android:layout_y="213dp"
+            wrpn:originalX="123"
+            wrpn:originalY="213"
+            wrpn:keyCode="51"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_rol" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonXY"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="169dp"
+            android:layout_y="213dp"
+            wrpn:originalX="169"
+            wrpn:originalY="213"
+            wrpn:keyCode="52"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_xy" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonBSP"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="215dp"
+            android:layout_y="213dp"
+            wrpn:originalX="215"
+            wrpn:originalY="213"
+            wrpn:keyCode="53"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_bsp" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonFKey"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="77dp"
+            android:layout_y="264dp"
+            wrpn:originalX="77"
+            wrpn:originalY="264"
+            wrpn:keyCode="66"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_fkey" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonGKey"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="123dp"
+            android:layout_y="264dp"
+            wrpn:originalX="123"
+            wrpn:originalY="264"
+            wrpn:keyCode="67"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_gkey" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButton4"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="307dp"
+            android:layout_y="162dp"
+            wrpn:originalX="307"
+            wrpn:originalY="162"
+            wrpn:keyCode="4"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_4" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButton5"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="353dp"
+            android:layout_y="162dp"
+            wrpn:originalX="353"
+            wrpn:originalY="162"
+            wrpn:keyCode="5"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_5" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButton6"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="399dp"
+            android:layout_y="162dp"
+            wrpn:originalX="399"
+            wrpn:originalY="162"
+            wrpn:keyCode="6"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_6" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonMul"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="445dp"
+            android:layout_y="162dp"
+            wrpn:originalX="445"
+            wrpn:originalY="162"
+            wrpn:keyCode="32"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_mul" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonRS"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="31dp"
+            android:layout_y="213dp"
+            wrpn:originalX="31"
+            wrpn:originalY="213"
+            wrpn:keyCode="49"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_rs" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonSST"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="77dp"
+            android:layout_y="213dp"
+            wrpn:originalX="77"
+            wrpn:originalY="213"
+            wrpn:keyCode="50"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_sst" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButton1"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="307dp"
+            android:layout_y="213dp"
+            wrpn:originalX="307"
+            wrpn:originalY="213"
+            wrpn:keyCode="1"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_1" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButton2"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="353dp"
+            android:layout_y="213dp"
+            wrpn:originalX="353"
+            wrpn:originalY="213"
+            wrpn:keyCode="2"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_2" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonMin"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="445dp"
+            android:layout_y="213dp"
+            wrpn:originalX="445"
+            wrpn:originalY="213"
+            wrpn:keyCode="48"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_min" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButton3"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="399dp"
+            android:layout_y="213dp"
+            wrpn:originalX="399"
+            wrpn:originalY="213"
+            wrpn:keyCode="3"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_3" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonSTO"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="169dp"
+            android:layout_y="264dp"
+            wrpn:originalX="169"
+            wrpn:originalY="264"
+            wrpn:keyCode="68"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_sto" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonRCL"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="215dp"
+            android:layout_y="264dp"
+            wrpn:originalX="215"
+            wrpn:originalY="264"
+            wrpn:keyCode="69"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_rcl" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButton0"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="307dp"
+            android:layout_y="264dp"
+            wrpn:originalX="307"
+            wrpn:originalY="264"
+            wrpn:keyCode="0"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_0" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonDp"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="353dp"
+            android:layout_y="264dp"
+            wrpn:originalX="353"
+            wrpn:originalY="264"
+            wrpn:keyCode="72"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_dp" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonCHS"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="399dp"
+            android:layout_y="264dp"
+            wrpn:originalX="399"
+            wrpn:originalY="264"
+            wrpn:keyCode="73"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_chs" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonPls"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="445dp"
+            android:layout_y="264dp"
+            wrpn:originalX="445"
+            wrpn:originalY="264"
+            wrpn:keyCode="64"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_pls" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonA"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="31dp"
+            android:layout_y="111dp"
+            wrpn:originalX="31"
+            wrpn:originalY="111"
+            wrpn:keyCode="10"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_a" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonGSB"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="31dp"
+            android:layout_y="162dp"
+            wrpn:originalX="31"
+            wrpn:originalY="162"
+            wrpn:keyCode="33"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_gsb" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonB"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="77dp"
+            android:layout_y="111dp"
+            wrpn:originalX="77"
+            wrpn:originalY="111"
+            wrpn:keyCode="11"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_b" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonF"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_x="261dp"
+            android:layout_y="111dp"
+            wrpn:originalX="261"
+            wrpn:originalY="111"
+            wrpn:keyCode="15"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_f" />
+
+        <com.emmetgray.wrpn.GButton
+            android:id="@+id/GButtonEnt"
+            android:layout_width="37dp"
+            android:layout_height="84dp"
+            android:layout_x="261dp"
+            android:layout_y="213dp"
+            wrpn:originalX="261"
+            wrpn:originalY="213"
+            wrpn:keyCode="54"
+            android:onClick="GButton_Click"
+            android:src="@drawable/bn_ent" />
+    </com.emmetgray.wrpn.CalcFace>
+</LinearLayout>

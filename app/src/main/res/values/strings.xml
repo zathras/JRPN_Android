@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WRPN</string>
+    <string name="app_title">WRPN 16c</string>
+    <string name="app_desc">Windows Reverse Polish Notation Calculator</string>
+    <string name="about_title">About WRPN</string>
+    <string name="menu_file">File</string>
+    <string name="menu_file_open">Open Existing State&#8230;</string>
+    <string name="menu_file_save">Save State</string>
+    <string name="menu_file_saveas">Save State As&#8230;</string>
+    <string name="menu_file_exit">Exit</string>
+    <string name="menu_mode">Mode</string>
+    <string name="menu_mode_float">Floating Point</string>
+    <string name="menu_mode_hex">Hexadecimal</string>
+    <string name="menu_mode_dec">Decimal</string>
+    <string name="menu_mode_oct">Octal</string>
+    <string name="menu_mode_bin">Binary</string>
+    <string name="menu_mode_si">Scientific Notation</string>
+    <string name="menu_opt">Options</string>
+    <string name="menu_opt_clear">Clear State</string>
+    <string name="menu_opt_save">Save Config on Exit</string>
+    <string name="menu_opt_8bit">8 bit Word Size</string>
+    <string name="menu_opt_16bit">16 bit Word Size</string>
+    <string name="menu_opt_32bit">32 bit Word Size</string>
+    <string name="menu_opt_64bit">64 bit Word Size</string>
+    <string name="menu_opt_1s">1\'s Complement</string>
+    <string name="menu_opt_2s">2\'s Complement</string>
+    <string name="menu_opt_unsigned">Unsigned</string>
+    <string name="menu_flags">Flags</string>
+    <string name="menu_flags_flag0">User Flag 0</string>
+    <string name="menu_flags_flag1">User Flag 1</string>
+    <string name="menu_flags_flag2">User Flag 2</string>
+    <string name="menu_flags_zeros">Leading Zeros</string>
+    <string name="menu_flags_carry">Carry Bit</string>
+    <string name="menu_flags_overflow">Overflow</string>
+    <string name="menu_help">Help</string>
+    <string name="menu_help_guide">Online User\'s Guide&#8230;</string>
+    <string name="menu_help_about">About&#8230;</string>
+    <string name="about_version">"Version: "</string>
+    <string name="about_date">"Date: "</string>
+    <string name="about_author">Author: Emmet Gray</string>
+    <string name="about_home">Home:</string>
+    <string name="about_email">"Email: "</string>
+    <string name="button_ok">OK</string>
+    <string name="about_wrpn_desc">Icon of WRPN</string>
+    <string name="about_egray_desc">Photo of Emmet Gray</string>
+    <string name="error_title_save">Error Saving State</string>
+    <string name="error_title_read">Error Reading State</string>
+    <string name="error_msg_read">Could not read state file\n</string>
+    <string name="error_msg_save">Could not save state file\n</string>
+    <string name="dialog_open_title">Open Existing State File</string>
+    <string name="dialog_save_msg">Enter a file name:</string>
+    <string name="dialog_save_title">Save State to File</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="error_prgm_title">Corrupted Program Memory</string>
+    <string name="error_prgm_msg">Error at line </string>
+    <string name="menu_help_backpanel">Back Panel&#8230;</string>
+    <string name="menu_configure">Configure</string>
+    <string name="button_save">Save</string>
+    <string name="button_close">Close</string>
+    <string name="config_prog">Program Memory Lines</string>
+    <string name="config_sync">Sync Conversions</string>
+    <string name="config_sleep">Sleep Delay</string>
+    <string name="config_reg">Number of Registers</string>
+    <string name="config_orient">Orientation</string>
+    <string name="config_save_success">You must restart the application before these changes take effect</string>
+    <string name="config_title">Configuration</string>
+    <string name="config_save_failure">Error! Could not save configuration changes\n</string>
+    <string-array name="orientation">
+        <item>Auto</item>
+        <item>Landscape</item>
+        <item>Portrait</item>
+    </string-array>
+
+</resources>

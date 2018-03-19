@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+     <item android:id="@+id/file" android:title="@string/menu_file">
+	     <menu>
+	         <item android:id="@+id/file_open" android:title="@string/menu_file_open" />
+	         <item android:id="@+id/file_save" android:title="@string/menu_file_save" />
+	         <item android:id="@+id/file_saveas" android:title="@string/menu_file_saveas" />
+	         <item android:id="@+id/file_exit" android:title="@string/menu_file_exit" />
+	     </menu>
+     </item>
+     <item android:id="@+id/mode" android:title="@string/menu_mode">
+	     <menu>
+	         <group android:checkableBehavior="all">
+		        <item android:id="@+id/mode_float" android:title="@string/menu_mode_float" />
+		        <item android:id="@+id/mode_hex" android:title="@string/menu_mode_hex" />
+				<item android:id="@+id/mode_dec" android:title="@string/menu_mode_dec" />
+		        <item android:id="@+id/mode_oct" android:title="@string/menu_mode_oct" />
+		        <item android:id="@+id/mode_bin" android:title="@string/menu_mode_bin" />
+			    <item android:id="@+id/mode_si" android:title="@string/menu_mode_si"/>
+		     </group>
+	     </menu>
+     </item>
+     <item android:id="@+id/options" android:title="@string/menu_opt">
+	     <menu>
+	        <item android:id="@+id/opt_clear" android:title="@string/menu_opt_clear" />
+		    <group android:checkableBehavior="all">
+      	        <item android:id="@+id/opt_save" android:title="@string/menu_opt_save" />
+				<item android:id="@+id/opt_8bit" android:title="@string/menu_opt_8bit" />
+		        <item android:id="@+id/opt_16bit" android:title="@string/menu_opt_16bit" />
+		        <item android:id="@+id/opt_32bit" android:title="@string/menu_opt_32bit" />
+		        <item android:id="@+id/opt_64bit" android:title="@string/menu_opt_64bit" />
+				<item android:id="@+id/opt_1s" android:title="@string/menu_opt_1s" />
+		        <item android:id="@+id/opt_2s" android:title="@string/menu_opt_2s" />
+		        <item android:id="@+id/opt_unsigned" android:title="@string/menu_opt_unsigned" />
+		    </group>
+	     </menu>
+     </item>
+     <item android:id="@+id/flags" android:title="@string/menu_flags">
+	     <menu>
+	         <group android:checkableBehavior="all">
+		        <item android:id="@+id/flag0" android:title="@string/menu_flags_flag0" />
+				<item android:id="@+id/flag1" android:title="@string/menu_flags_flag1" />
+		        <item android:id="@+id/flag2" android:title="@string/menu_flags_flag2" />
+		        <item android:id="@+id/flagZeros" android:title="@string/menu_flags_zeros" />
+		        <item android:id="@+id/flagCarry" android:title="@string/menu_flags_carry" />
+				<item android:id="@+id/flagOverflow" android:title="@string/menu_flags_overflow" />
+			</group>
+	     </menu>
+     </item>
+	<item android:id="@+id/config" android:title="@string/menu_configure">
+	</item>
+	<item android:id="@+id/help" android:title="@string/menu_help">
+	     <menu>
+	         <item android:id="@+id/help_content" android:title="@string/menu_help_guide" />
+	         <item android:id="@+id/help_backpanel" android:title="@string/menu_help_backpanel" />
+	         <item android:id="@+id/help_about" android:title="@string/menu_help_about" />
+	     </menu>
+     </item>  
+</menu>
