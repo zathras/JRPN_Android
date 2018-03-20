@@ -1,3 +1,5 @@
+# WRPN, Android version
+
 WRPN is [Emmet Gray's](http://www.emmet-gray.com/) wonderful little
 calculator, modeled after the [HP 16-C](https://en.wikipedia.org/wiki/HP-16C).
 The original is available at 
@@ -27,3 +29,7 @@ run, with unix-style files (since the commit was from unix).
 I don't have any predictions as to when I might work on this.  For now, I just
 wanted to make a repository before I start tinkering.  It's nice to have a
 couple of projects on the back burner :-)
+
+Note that I'm also fiddling with the desktop Java version of WRPN,
+over in
+[https://github.com/zathras/WRPN_Java](https://github.com/zathras/WRPN_Java).
