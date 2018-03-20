@@ -1,7 +1,7 @@
 WRPN is [Emmet Gray's](http://www.emmet-gray.com/) wonderful little
 calculator, modeled after the [HP 16-C](https://en.wikipedia.org/wiki/HP-16C).
 The original is available at 
-[https://en.wikipedia.org/wiki/HP-16C](https://en.wikipedia.org/wiki/HP-16C).
+[http://www.wrpn.emmet-gray.com/](http://www.wrpn.emmet-gray.com/).
 As of this writing, I'm planning to take the Android version, and modify it
 to use fonts to draw the key labels, so they come out nice and crisp on
 big screens.
