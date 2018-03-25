@@ -43,7 +43,7 @@ public class DynamicEditText extends EditText {
 
     public void setTextSizes(ScaleInfo scaleInfo, int width) {
         // calculate the size of the font to fill the screen
-        float padding = 2f*getPaddingLeft() + scaleInfo.scale(5);
+        float padding = 2f*getPaddingLeft(); // @@  + scaleInfo.scale(5);
         largeTextSize = calculateDisplayFont(MAX_LARGE_TEXT, width, padding, scaleInfo);
         smallTextSize = calculateDisplayFont(MAX_SMALL_TEXT, width, padding, scaleInfo);
         setText(getText());
@@ -57,9 +57,12 @@ public class DynamicEditText extends EditText {
             float mid = (large + small) / 2;
             Paint p = getPaint();
             p.setTextSize(mid);
+	    /* @@
             float w = TypedValue.applyDimension(
                     TypedValue.COMPLEX_UNIT_DIP, p.measureText(text),
                     getResources().getDisplayMetrics());
+		    */
+	    float w = p.measureText(text);
             if (w <= width - padding) {
                 small = mid;
             } else {
@@ -76,7 +79,7 @@ public class DynamicEditText extends EditText {
         if (temp.length() > MAX_LARGE_TEXT.length()) {
             this.setGravity(Gravity.AXIS_PULL_BEFORE + Gravity.CENTER);
             // no modification of either the text or the size
-            this.setTextSize(smallTextSize);
+            setTextSize(TypedValue.COMPLEX_UNIT_PX, smallTextSize);	// Raw pixels
             super.setText(text);
         } else {
             // adjust the padding
@@ -85,7 +88,7 @@ public class DynamicEditText extends EditText {
             }
 
             this.setGravity(Gravity.TOP);
-            this.setTextSize(largeTextSize);
+            setTextSize(TypedValue.COMPLEX_UNIT_PX, largeTextSize);	// Raw pixels
             super.setText(text);
         }
     }
