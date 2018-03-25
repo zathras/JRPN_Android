@@ -1,12 +1,15 @@
 # WRPN, Android version
 
+![Screenshot](README.dir/screenshot_small.png)
+
 WRPN is [Emmet Gray's](http://www.emmet-gray.com/) wonderful little
 calculator, modeled after the [HP 16-C](https://en.wikipedia.org/wiki/HP-16C).
 The original is available at 
 [http://www.wrpn.emmet-gray.com/](http://www.wrpn.emmet-gray.com/).
-As of this writing, I'm planning to take the Android version, and modify it
-to use fonts to draw the key labels, so they come out nice and crisp on
-big screens.
+As of this writing, I've basically finished the Android version.
+version.  I'm quite happy with how it looks.
+It uses fonts to draw the key labels, so they come out nice and 
+crisp on big screens.  It looks pretty good on my phone and tablet.
 
 In order to track the changes, I started with the original source, downloaded
 on March 19, 2018 from
@@ -26,10 +29,12 @@ I applied a couple of little changes:
 Essentially, I did the minimum necessary to get the program to build and
 run, with unix-style files (since the commit was from unix).
 
-I don't have any predictions as to when I might work on this.  For now, I just
-wanted to make a repository before I start tinkering.  It's nice to have a
-couple of projects on the back burner :-)
-
-Note that I'm also fiddling with the desktop Java version of WRPN,
+Note that I started by doing the desktop Java version of WRPN,
 over in
 [https://github.com/zathras/WRPN_Java](https://github.com/zathras/WRPN_Java).
+
+
+Here's are full-resolution screen grabs from my tablet, in both portrait
+and landscape:
+![Landscape Screenshot](README.dir/landscape.png)
+![Portrait Screenshot](README.dir/portrait.png)
