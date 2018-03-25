@@ -42,10 +42,10 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_x="100dp"
-            android:layout_y="57dp"
+            android:layout_y="54dp"
             android:text="f"
             android:textColor="#000000"
-            android:textSize="7dp"
+            android:textSize="6dp"
             android:tag="100"/>
 
         <TextView
@@ -54,10 +54,10 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_x="155dp"
-            android:layout_y="57dp"
+            android:layout_y="54dp"
             android:text="g"
             android:textColor="#000000"
-            android:textSize="7dp"
+            android:textSize="6dp"
             android:tag="155"/>
 
         <TextView
@@ -106,7 +106,7 @@
             wrpn:originalY="111"
             wrpn:keyCode="12"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_c" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonD"
@@ -118,7 +118,7 @@
             wrpn:originalY="111"
             wrpn:keyCode="13"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_d" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonE"
@@ -130,7 +130,7 @@
             wrpn:originalY="111"
             wrpn:keyCode="14"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_e" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonDiv"
@@ -142,7 +142,7 @@
             wrpn:originalY="111"
             wrpn:keyCode="16"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_div" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButton9"
@@ -154,7 +154,7 @@
             wrpn:originalY="111"
             wrpn:keyCode="9"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_9" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButton8"
@@ -166,7 +166,7 @@
             wrpn:originalY="111"
             wrpn:keyCode="8"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_8" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButton7"
@@ -178,7 +178,7 @@
             wrpn:originalY="111"
             wrpn:keyCode="7"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_7" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonGTO"
@@ -190,7 +190,7 @@
             wrpn:originalY="162"
             wrpn:keyCode="34"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_gto" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonHEX"
@@ -202,7 +202,7 @@
             wrpn:originalY="162"
             wrpn:keyCode="35"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_hex" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonDEC"
@@ -214,9 +214,9 @@
             wrpn:originalY="162"
             wrpn:keyCode="36"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_dec" />
+            android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.emmetgray.wrpn.GButtonSqrt
             android:id="@+id/GButtonOCT"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -226,7 +226,7 @@
             wrpn:originalY="162"
             wrpn:keyCode="37"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_oct" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonBIN"
@@ -238,7 +238,7 @@
             wrpn:originalY="162"
             wrpn:keyCode="38"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_bin" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonOn"
@@ -250,7 +250,7 @@
             wrpn:originalY="264"
             wrpn:keyCode="65"
 			android:onClick="GButton_Click"
-            android:src="@drawable/bn_on" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonRol"
@@ -262,7 +262,7 @@
             wrpn:originalY="213"
             wrpn:keyCode="51"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_rol" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonXY"
@@ -274,7 +274,7 @@
             wrpn:originalY="213"
             wrpn:keyCode="52"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_xy" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonBSP"
@@ -286,9 +286,9 @@
             wrpn:originalY="213"
             wrpn:keyCode="53"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_bsp" />
+            android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.emmetgray.wrpn.GButtonShift
             android:id="@+id/GButtonFKey"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -300,7 +300,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn_fkey" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.emmetgray.wrpn.GButtonShift
             android:id="@+id/GButtonGKey"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -322,7 +322,7 @@
             wrpn:originalY="162"
             wrpn:keyCode="4"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_4" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButton5"
@@ -334,7 +334,7 @@
             wrpn:originalY="162"
             wrpn:keyCode="5"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_5" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButton6"
@@ -346,7 +346,7 @@
             wrpn:originalY="162"
             wrpn:keyCode="6"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_6" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonMul"
@@ -358,7 +358,7 @@
             wrpn:originalY="162"
             wrpn:keyCode="32"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_mul" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonRS"
@@ -370,7 +370,7 @@
             wrpn:originalY="213"
             wrpn:keyCode="49"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_rs" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonSST"
@@ -382,7 +382,7 @@
             wrpn:originalY="213"
             wrpn:keyCode="50"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_sst" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButton1"
@@ -394,7 +394,7 @@
             wrpn:originalY="213"
             wrpn:keyCode="1"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_1" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButton2"
@@ -406,7 +406,7 @@
             wrpn:originalY="213"
             wrpn:keyCode="2"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_2" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonMin"
@@ -418,7 +418,7 @@
             wrpn:originalY="213"
             wrpn:keyCode="48"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_min" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButton3"
@@ -430,7 +430,7 @@
             wrpn:originalY="213"
             wrpn:keyCode="3"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_3" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonSTO"
@@ -442,7 +442,7 @@
             wrpn:originalY="264"
             wrpn:keyCode="68"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_sto" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonRCL"
@@ -454,7 +454,7 @@
             wrpn:originalY="264"
             wrpn:keyCode="69"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_rcl" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButton0"
@@ -466,7 +466,7 @@
             wrpn:originalY="264"
             wrpn:keyCode="0"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_0" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonDp"
@@ -478,7 +478,7 @@
             wrpn:originalY="264"
             wrpn:keyCode="72"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_dp" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonCHS"
@@ -490,7 +490,7 @@
             wrpn:originalY="264"
             wrpn:keyCode="73"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_chs" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonPls"
@@ -502,7 +502,7 @@
             wrpn:originalY="264"
             wrpn:keyCode="64"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_pls" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonA"
@@ -514,7 +514,7 @@
             wrpn:originalY="111"
             wrpn:keyCode="10"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_a" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonGSB"
@@ -526,7 +526,7 @@
             wrpn:originalY="162"
             wrpn:keyCode="33"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_gsb" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonB"
@@ -538,7 +538,7 @@
             wrpn:originalY="111"
             wrpn:keyCode="11"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_b" />
+            android:src="@drawable/bn" />
 
         <com.emmetgray.wrpn.GButton
             android:id="@+id/GButtonF"
@@ -550,9 +550,9 @@
             wrpn:originalY="111"
             wrpn:keyCode="15"
             android:onClick="GButton_Click"
-            android:src="@drawable/bn_f" />
+            android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.emmetgray.wrpn.GButtonEnter
             android:id="@+id/GButtonEnt"
             android:layout_width="37dp"
             android:layout_height="84dp"

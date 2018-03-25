@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<declare-styleable name="GButton">
-		<attr name="originalX" format="integer"/>
-		<attr name="originalY" format="integer" />
-		<attr name="keyCode" format="integer" />
-	</declare-styleable> 
-		<declare-styleable name="DynamicEditText">
-		<attr name="baseFontSize" format="float"/>
-		<attr name="lengthThreshold" format="integer" />
-	</declare-styleable>   
+    <declare-styleable name="GButton">
+        <attr name="originalX" format="integer"/>
+        <attr name="originalY" format="integer" />
+        <attr name="keyCode" format="integer" />
+    </declare-styleable> 
+    <declare-styleable name="DynamicEditText">
+        <attr name="baseFontSize" format="float"/>
+        <attr name="lengthThreshold" format="integer" />
+    </declare-styleable>   
 </resources>

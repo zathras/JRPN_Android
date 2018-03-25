@@ -1,3 +1,17 @@
+
+/*
+   Portions of this file copyright 2018 Bill Foote
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+       http://www.apache.org/licenses/LICENSE-2.0
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+ */
+
 package com.emmetgray.wrpn;
 
 import android.app.AlertDialog;
@@ -47,7 +61,13 @@ public class fmMain extends AppCompatActivity {
     private TextView lbFKey, lbGKey, lbCarry, lbOverflow, lbPrgm;
     private DynamicEditText tbDisplay;
     private CalcFace pnCalcFace;
-    private final String TAG = "WRPN";
+    private final ScaleInfo scaleInfo = new ScaleInfo();
+    public static final String TAG = "WRPN";
+
+    public final static int CALC_WIDTH = 512;
+    public final static int CALC_HEIGHT = 320;
+    public final static int BUTTON_WIDTH = 37;
+    public final static int BUTTON_HEIGHT = 33;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,9 +182,186 @@ public class fmMain extends AppCompatActivity {
         c = new Calculator(cs);
         LoadState();
 
-        // process a dummy key to refresh the display
-        ProcessPacket(c.ProcessKey(-1));
+        initScreen();
+
+        // Note that doResize() will be called for us after onCreate()
+        // is finished.
     }
+
+    private GButton findButton(int id) {
+        return (GButton) findViewById(id);
+    }
+
+    // Called from onCreate(), this sets up the buttons and other rendered text
+    // on the calculator face.
+
+    private void initScreen() {
+        GButton bn0 = findButton(R.id.GButton0);
+        GButton bn1 = findButton(R.id.GButton1);
+        GButton bn2 = findButton(R.id.GButton2);
+        GButton bn3 = findButton(R.id.GButton3);
+        GButton bn4 = findButton(R.id.GButton4);
+        GButton bn5 = findButton(R.id.GButton5);
+        GButton bn6 = findButton(R.id.GButton6);
+        GButton bn7 = findButton(R.id.GButton7);
+        GButton bn8 = findButton(R.id.GButton8);
+        GButton bn9 = findButton(R.id.GButton9);
+        GButton bnA = findButton(R.id.GButtonA);
+        GButton bnB = findButton(R.id.GButtonB);
+        GButton bnBIN = findButton(R.id.GButtonBIN);
+        GButton bnBSP = findButton(R.id.GButtonBSP);
+        GButton bnC = findButton(R.id.GButtonC);
+        GButton bnCHS = findButton(R.id.GButtonCHS);
+        GButton bnD = findButton(R.id.GButtonD);
+        GButton bnDEC = findButton(R.id.GButtonDEC);
+        GButton bnDiv = findButton(R.id.GButtonDiv);
+        GButton bnDp = findButton(R.id.GButtonDp);
+        GButton bnE = findButton(R.id.GButtonE);
+        GButton bnEnt = findButton(R.id.GButtonEnt);
+        GButton bnF = findButton(R.id.GButtonF);
+        GButton bnFKey = findButton(R.id.GButtonFKey);
+        GButton bnGKey = findButton(R.id.GButtonGKey);
+        GButton bnGSB = findButton(R.id.GButtonGSB);
+        GButton bnGTO = findButton(R.id.GButtonGTO);
+        GButton bnHEX = findButton(R.id.GButtonHEX);
+        GButton bnMin = findButton(R.id.GButtonMin);
+        GButton bnMul = findButton(R.id.GButtonMul);
+        GButton bnOCT = findButton(R.id.GButtonOCT);
+        GButton bnON = findButton(R.id.GButtonOn);
+        GButton bnPls = findButton(R.id.GButtonPls);
+        GButton bnRCL = findButton(R.id.GButtonRCL);
+        GButton bnRS = findButton(R.id.GButtonRS);
+        GButton bnRol = findButton(R.id.GButtonRol);
+        GButton bnSST = findButton(R.id.GButtonSST);
+        GButton bnSTO = findButton(R.id.GButtonSTO);
+        GButton bnXY = findButton(R.id.GButtonXY);
+
+        bnA.setWhiteLabel("A");
+        bnA.setBlueLabel("LJ");
+        bnB.setWhiteLabel("B");
+        bnB.setBlueLabel("ASR");
+        bnC.setWhiteLabel("C");
+        bnC.setBlueLabel("RLC");
+        bnD.setWhiteLabel("D");
+        bnD.setBlueLabel("RRC");
+        bnE.setWhiteLabel("E");
+        bnE.setBlueLabel("RCLn");
+        bnF.setWhiteLabel("F");
+        bnF.setBlueLabel("RRCn");
+        bn7.setWhiteLabel("7");
+        bn7.setBlueLabel("#B");
+        bn8.setWhiteLabel("8");
+        bn8.setBlueLabel("ABS");
+        bn9.setWhiteLabel("9");
+        bn9.setBlueLabel("DBLR");
+        bnDiv.setWhiteLabel("\u00F7");  // ÷
+        bnDiv.setBlueLabel("DBL\u00F7"); // DBL÷
+        bnGSB.setWhiteLabel("GSB");
+        bnGSB.setBlueLabel("RTN");
+        bnGTO.setWhiteLabel("GTO");
+        bnGTO.setBlueLabel("LBL");
+        bnHEX.setWhiteLabel("HEX");
+        bnHEX.setBlueLabel("DSZ");
+        bnDEC.setWhiteLabel("DEC");
+        bnDEC.setBlueLabel("ISZ");
+        bnOCT.setWhiteLabel("OCT");
+        bnOCT.setBlueLabel("\u221Ax\u0305");   // √x with "combining overline"
+        bnBIN.setWhiteLabel("BIN");
+        bnBIN.setBlueLabel("1/x");
+        bn4.setWhiteLabel("4");
+        bn4.setBlueLabel("SF");
+        bn5.setWhiteLabel("5");
+        bn5.setBlueLabel("CF");
+        bn6.setWhiteLabel("6");
+        bn6.setBlueLabel("F?");
+        bnMul.setWhiteLabel("X");
+        bnMul.setBlueLabel("DBL\u00D7");  // DBL×
+        bnRS.setWhiteLabel("R/S");
+        bnRS.setBlueLabel("P/R");
+        bnSST.setWhiteLabel("SST");
+        bnSST.setBlueLabel("BST");
+        bnRol.setWhiteLabel("R\u2193");  // R↓
+        bnRol.setBlueLabel("R\u2191");   // R↑
+        bnXY.setWhiteLabel("x\u21FFy");  // x⇿y
+        bnXY.setBlueLabel("PSE");
+        bnBSP.setWhiteLabel("BSP");
+        bnBSP.setBlueLabel("CLx");
+        bnEnt.setWhiteLabel("ENTER");
+        bnEnt.setBlueLabel("LSTx");
+        bn1.setWhiteLabel("1");
+        bn1.setBlueLabel("x\u2264y");  // x≤y
+        bn2.setWhiteLabel("2");
+        bn2.setBlueLabel("x<0");
+        bn3.setWhiteLabel("3");
+        bn3.setBlueLabel("x>y");
+        bnMin.setWhiteLabel("-");
+        bnMin.setBlueLabel("x>0");
+        bnON.setWhiteLabel("ON");
+        bnON.setBlueLabel("");
+        bnFKey.setWhiteLabel("f");
+        bnFKey.setBlueLabel("");
+        bnGKey.setWhiteLabel("g");
+        bnGKey.setBlueLabel("");
+        bnSTO.setWhiteLabel("STO");
+        bnSTO.setBlueLabel("<");
+        bnRCL.setWhiteLabel("RCL");
+        bnRCL.setBlueLabel(">");
+        bn0.setWhiteLabel("0");
+        bn0.setBlueLabel("x\u2260y");  // x≠y
+        bnDp.setWhiteLabel("\u2219");   // ∙
+        bnDp.setBlueLabel("x\u22600");  // x≠0
+        bnCHS.setWhiteLabel("CHS");
+        bnCHS.setBlueLabel("x=y");
+        bnPls.setWhiteLabel("+");
+        bnPls.setBlueLabel("x=0");
+        pnCalcFace.yellowText = new CalcFace.YellowText[] {
+                new CalcFace.YellowText(bnA, "SL"),
+                new CalcFace.YellowText(bnB, "SR"),
+                new CalcFace.YellowText(bnC, "RL"),
+                new CalcFace.YellowText(bnD, "RR"),
+                new CalcFace.YellowText(bnE, "RLn"),
+                new CalcFace.YellowText(bnF, "RRn"),
+                new CalcFace.YellowText(bn7, "MASKL"),
+                new CalcFace.YellowText(bn8, "MASKR"),
+                new CalcFace.YellowText(bn9, "RMD"),
+                new CalcFace.YellowText(bnDiv, "XOR"),
+                new CalcFace.YellowText(bnGSB, "x\u21FF(i)"),  // x⇿(i)
+                new CalcFace.YellowText(bnGTO, "x\u21FFI"),  // x⇿I
+                new CalcFace.YellowMultiText(bnHEX, bnBIN, 0, "SHOW"),
+                new CalcFace.YellowText(bn4, "SB"),
+                new CalcFace.YellowText(bn5, "CB"),
+                new CalcFace.YellowText(bn6, "B?"),
+                new CalcFace.YellowText(bnMul, "AND"),
+                new CalcFace.YellowText(bnRS, "(i)"),
+                new CalcFace.YellowText(bnSST, "I"),
+                new CalcFace.YellowMultiText(bnRol, bnBSP, 1, "CLEAR"),
+                new CalcFace.YellowText(bnRol, "PRGM"),
+                new CalcFace.YellowText(bnXY, "REG"),
+                new CalcFace.YellowText(bnBSP, "PREFIX"),
+                new CalcFace.YellowText(bnEnt, "WINDOW"),
+                new CalcFace.YellowMultiText(bn1, bn3, 1, "SET COMPL"),
+                new CalcFace.YellowText(bn1, "1'S"),
+                new CalcFace.YellowText(bn2, "2'S"),
+                new CalcFace.YellowText(bn3, "UNSGN"),
+                new CalcFace.YellowText(bnMin, "NOT"),
+                new CalcFace.YellowText(bnSTO, "WSIZE"),
+                new CalcFace.YellowText(bnRCL, "FLOAT"),
+                new CalcFace.YellowText(bn0, "MEM"),
+                new CalcFace.YellowText(bnDp, "STATUS"),
+                new CalcFace.YellowText(bnCHS, "EEX"),
+                new CalcFace.YellowText(bnPls, "OR")
+        };
+        pnCalcFace.setScaleInfo(scaleInfo);
+        GButton.setupScaleInfo(scaleInfo);
+        for (int i = 0; i < pnCalcFace.getChildCount(); i++) {
+            View v = pnCalcFace.getChildAt(i);
+            if (v instanceof GButton) {
+                GButton btn = (GButton) v;
+                btn.setScaleInfo(scaleInfo);
+            }
+        }
+    }
+
 
     // if coming back from a pause
     @Override
@@ -626,135 +823,161 @@ public class fmMain extends AppCompatActivity {
         return true;
     }
 
+    private void doResize(int w, int h) {
+        if (h < w) {
+            // landscape mode
+            if (512 * w / CALC_WIDTH <= 512 * h / CALC_HEIGHT) {
+                scaleInfo.drawScaleNumerator = w;
+                scaleInfo.drawScaleDenominator = CALC_WIDTH;
+            } else {
+                scaleInfo.drawScaleNumerator = h;
+                scaleInfo.drawScaleDenominator = CALC_HEIGHT;
+            }
+            scaleInfo.drawScaleNumeratorX = w;
+            scaleInfo.drawScaleDenominatorX = CALC_WIDTH;
+            scaleInfo.drawScaleNumeratorY = h;
+            scaleInfo.drawScaleDenominatorY = CALC_HEIGHT;
+        } else {
+            // portrait mode.  The calculator face image for portrait
+            // mode has width CALC_HEIGHT, and height CALC_WIDTH
+            if (512 * h / CALC_WIDTH <= 512 * w / CALC_HEIGHT) {
+                scaleInfo.drawScaleNumerator = h;
+                scaleInfo.drawScaleDenominator = CALC_WIDTH;
+            } else {
+                scaleInfo.drawScaleNumerator = w;
+                scaleInfo.drawScaleDenominator = CALC_HEIGHT;
+            }
+            scaleInfo.drawScaleNumeratorX = w;
+            scaleInfo.drawScaleDenominatorX = CALC_HEIGHT;
+            scaleInfo.drawScaleNumeratorY = h;
+            scaleInfo.drawScaleDenominatorY = CALC_WIDTH;
+        }
+        GButton.setupScaleInfo(scaleInfo);
+
+        int x, y, width, height;
+
+        // loop thru all of the child views
+        for (int i = 0; i < pnCalcFace.getChildCount(); i++) {
+            View v = pnCalcFace.getChildAt(i);
+
+            // do the EditText (there's only one)
+            if (v instanceof DynamicEditText) {
+                DynamicEditText et = (DynamicEditText) v;
+                et.setPadding(scaleInfo.scale(6), 0, 0, 0);
+
+                if (h > w) {
+                    // portrait mode
+                    x = 27 * w / CALC_HEIGHT;
+                    y = 26 * h / CALC_WIDTH;
+                    height = (50 * h / CALC_WIDTH) -3;
+                    width = 266 * w / CALC_HEIGHT;
+                } else {
+                    // landscape mode
+                    x = 54 * w / CALC_WIDTH;
+                    y = 26 * h / CALC_HEIGHT;
+                    height = (50 * h / CALC_HEIGHT) -3;
+                    width = 320 * w / CALC_WIDTH;
+                }
+
+                //et.layout(x, y, x + width, y + height);
+                pnCalcFace.updateViewLayout(et, new AbsoluteLayout.LayoutParams(width,
+                        height, x, y));
+
+                // calculate the size of the font to fill the screen
+                String mText = "00000000 00000000 00000000 00000000 .b.";
+                Paint mTextPaint = new Paint();
+                mTextPaint.setTypeface(Typeface.MONOSPACE);
+                float scale;
+                float padding = TypedValue.applyDimension(
+                        TypedValue.COMPLEX_UNIT_DIP, et.getPaddingLeft(),
+                        getResources().getDisplayMetrics());
+
+                for (scale = 50; scale > 0.25f; scale -= 0.25f) {
+                    mTextPaint.setTextSize(scale);
+                    float t = mTextPaint.measureText(mText);
+                    // convert to pixels
+                    float px = TypedValue.applyDimension(
+                            TypedValue.COMPLEX_UNIT_DIP, t, getResources()
+                                    .getDisplayMetrics());
+                    // this isn't an exact science, so we fudge the width a wee bit
+                    if (px < width*0.92f - (padding * 2))
+                        break;
+                }
+                et.setTextSize(scale);
+                et.setBaseFontSize(scale);
+                continue;
+            }
+
+            // do the TextViews (there are 5)
+            if (v instanceof TextView) {
+                TextView tv = (TextView) v;
+
+                if (h > w) {
+                    // the originalX location is stored in the Tag
+                    x = Integer.parseInt(tv.getTag().toString()) * w
+                            / CALC_HEIGHT;
+
+                    y = 55 * h / CALC_WIDTH;
+                    width = 30 * w / CALC_HEIGHT;
+                    height = AbsoluteLayout.LayoutParams.WRAP_CONTENT;
+                } else {
+                    x = Integer.parseInt(tv.getTag().toString()) * w
+                            / CALC_WIDTH;
+                    y = 55 * h / CALC_HEIGHT;
+                    width = 30 * w / CALC_WIDTH;
+                    height = AbsoluteLayout.LayoutParams.WRAP_CONTENT;
+                }
+
+                //tv.layout(x, y, x + width, y + height);
+                pnCalcFace.updateViewLayout(tv, new AbsoluteLayout.LayoutParams(width,
+                        height, x, y));
+
+                tv.setTextSize(scaleInfo.scale(40) / 10f);
+                continue;
+            }
+
+            // do the buttons (there are 39)
+            if (v instanceof GButton) {
+                GButton btn = (GButton) v;
+
+                if (h > w) {
+                    // portrait mode
+                    x = btn.getOriginalX() * w / CALC_HEIGHT;
+                    y = btn.getOriginalY() * h / CALC_WIDTH;
+                    if (btn instanceof GButtonEnter) {
+                        height = 89 * h / CALC_WIDTH;
+                    } else {
+                        height = BUTTON_HEIGHT * h / CALC_WIDTH;
+                    }
+                    width = BUTTON_WIDTH * w / CALC_HEIGHT;
+                } else {
+                    // landscape mode
+                    x = btn.getOriginalX() * w / CALC_WIDTH;
+                    y = btn.getOriginalY() * h / CALC_HEIGHT;
+                    if (btn instanceof GButtonEnter) {
+                        height = 84 * h / CALC_HEIGHT;
+                    } else {
+                        height = BUTTON_HEIGHT * h / CALC_HEIGHT;
+                    }
+                    width = BUTTON_WIDTH * w / CALC_WIDTH;
+                }
+                pnCalcFace.updateViewLayout(btn, new AbsoluteLayout.LayoutParams(width,
+                        height, x, y));
+                btn.alignText(width, height);
+            }
+        }
+
+        pnCalcFace.resize();  // Sets scaleInfo.yellowPaint
+        // process a dummy key to refresh the display
+        ProcessPacket(c.ProcessKey(-1));
+    }
+
     // handle all of the resizing here.  I like precise control over
     // the location and sizes.
     OnResizeListener listener = new OnResizeListener() {
         @Override
         public void OnResize(int id, int w, int h, int oldw, int oldh) {
-            final int CALC_WIDTH = 512;
-            final int CALC_HEIGHT = 320;
-            final int BUTTON_WIDTH = 37;
-            final int BUTTON_HEIGHT = 33;
-            int x, y, width, height;
-
-            Log.i(TAG, "w=" + w + ", h=" + h + ", oldw=" + oldw + ", oldh=" + oldh);
-            // loop thru all of the child views
-            for (int i = 0; i < pnCalcFace.getChildCount(); i++) {
-                View v = pnCalcFace.getChildAt(i);
-
-                // do the EditText (there's only one)
-                if (v.getClass() == DynamicEditText.class) {
-                    DynamicEditText et = (DynamicEditText) v;
-
-                    if (h > w) {
-                        // portrait mode
-                        x = 27 * w / CALC_HEIGHT;
-                        y = 26 * h / CALC_WIDTH;
-                        height = (50 * h / CALC_WIDTH) -3;
-                        width = 266 * w / CALC_HEIGHT;
-                    } else {
-                        // landscape mode
-                        x = 54 * w / CALC_WIDTH;
-                        y = 26 * h / CALC_HEIGHT;
-                        height = (50 * h / CALC_HEIGHT) -3;
-                        width = 320 * w / CALC_WIDTH;
-                    }
-
-                    //et.layout(x, y, x + width, y + height);
-                    pnCalcFace.updateViewLayout(et, new AbsoluteLayout.LayoutParams(width,
-                            height, x, y));
-
-                    // calculate the size of the font to fill the screen
-                    String mText = "00000000 00000000 00000000 00000000 .b.";
-                    Paint mTextPaint = new Paint();
-                    mTextPaint.setTypeface(Typeface.MONOSPACE);
-                    float scale;
-                    float padding = TypedValue.applyDimension(
-                            TypedValue.COMPLEX_UNIT_DIP, et.getPaddingLeft(),
-                            getResources().getDisplayMetrics());
-
-                    for (scale = 50; scale >= 0; scale -= 0.25f) {
-                        mTextPaint.setTextSize(scale);
-                        float t = mTextPaint.measureText(mText);
-                        // convert to pixels
-                        float px = TypedValue.applyDimension(
-                                TypedValue.COMPLEX_UNIT_DIP, t, getResources()
-                                        .getDisplayMetrics());
-                        // this isn't an exact science, so we fudge the padding
-                        // a wee bit
-                        if (px < width - (padding * 2.25))
-                            break;
-                    }
-                    et.setTextSize(scale);
-                    et.setBaseFontSize(scale);
-                    continue;
-                }
-
-                // do the TextViews (there are 5)
-                if (v.getClass() == TextView.class) {
-                    TextView tv = (TextView) v;
-
-                    // make this text size about 55% of the display's text size
-                    EditText display = (EditText) pnCalcFace
-                            .findViewById(R.id.tbDisplay);
-                    tv.setTextSize(display.getTextSize() * 0.55f);
-
-                    if (h > w) {
-                        // the originalX location is stored in the Tag
-                        x = Integer.parseInt(tv.getTag().toString()) * w
-                                / CALC_HEIGHT;
-
-                        y = 55 * h / CALC_WIDTH;
-                        width = 30 * w / CALC_HEIGHT;
-                        height = AbsoluteLayout.LayoutParams.WRAP_CONTENT;
-                    } else {
-                        x = Integer.parseInt(tv.getTag().toString()) * w
-                                / CALC_WIDTH;
-                        y = 57 * h / CALC_HEIGHT;
-                        width = 30 * w / CALC_WIDTH;
-                        height = AbsoluteLayout.LayoutParams.WRAP_CONTENT;
-                    }
-
-                    //tv.layout(x, y, x + width, y + height);
-                    pnCalcFace.updateViewLayout(tv, new AbsoluteLayout.LayoutParams(width,
-                            height, x, y));
-                    continue;
-                }
-
-                // do the buttons (there are 39)
-                if (v.getClass() == GButton.class) {
-                    GButton btn = (GButton) v;
-
-                    if (h > w) {
-                        // portrait mode
-                        x = btn.getOriginalX() * w / CALC_HEIGHT;
-                        y = btn.getOriginalY() * h / CALC_WIDTH;
-                        if (btn.getKeyCode() == 54) {
-                            height = 89 * h / CALC_WIDTH;
-                        } else {
-                            height = BUTTON_HEIGHT * h / CALC_WIDTH;
-                        }
-                        width = BUTTON_WIDTH * w / CALC_HEIGHT;
-                    } else {
-                        // landscape mode
-                        x = btn.getOriginalX() * w / CALC_WIDTH;
-                        y = btn.getOriginalY() * h / CALC_HEIGHT;
-                        if (btn.getKeyCode() == 54) {
-                            height = 84 * h / CALC_HEIGHT;
-                        } else {
-                            height = BUTTON_HEIGHT * h / CALC_HEIGHT;
-                        }
-                        width = BUTTON_WIDTH * w / CALC_WIDTH;
-                    }
-
-                    //btn.layout(x, y, x + width, y + height);
-                    pnCalcFace.updateViewLayout(btn, new AbsoluteLayout.LayoutParams(width,
-                            height, x, y));
-                }
-            }
-
-            // process a dummy key to refresh the display
-            ProcessPacket(c.ProcessKey(-1));
+            doResize(w, h);
         }
     };
 
@@ -1147,3 +1370,4 @@ public class fmMain extends AppCompatActivity {
         }
     }
 }
+
