@@ -1,16 +1,25 @@
 package com.emmetgray.wrpn;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.widget.EditText;
 
 // a modification of the normal EditText box that allows for the size
 // of the font to dynamically change based upon the length of the string
+@SuppressLint("AppCompatCustomView")
 public class DynamicEditText extends EditText {
-    private float pBaseFontSize = 10f;
-    private int pLengthThreshold = -1;
+
+    private final static String MAX_LARGE_TEXT = "88888888888888888888";
+    private final static String MAX_SMALL_TEXT = " 00000000 00000000 00000000 00000000 .b.";
+
+    private float largeTextSize = 20f;
+    private float smallTextSize = 10f;
 
     public DynamicEditText(Context context) {
         super(context);
@@ -21,10 +30,6 @@ public class DynamicEditText extends EditText {
 
         TypedArray a = getContext().obtainStyledAttributes(attrs,
                 R.styleable.DynamicEditText);
-        pBaseFontSize = a.getFloat(R.styleable.DynamicEditText_baseFontSize,
-                10f);
-        pLengthThreshold = a.getInt(
-                R.styleable.DynamicEditText_lengthThreshold, -1);
         a.recycle();
     }
 
@@ -33,46 +38,54 @@ public class DynamicEditText extends EditText {
 
         TypedArray a = getContext().obtainStyledAttributes(attrs,
                 R.styleable.DynamicEditText);
-        pBaseFontSize = a.getFloat(R.styleable.DynamicEditText_baseFontSize,
-                10f);
-        pLengthThreshold = a.getInt(
-                R.styleable.DynamicEditText_lengthThreshold, -1);
         a.recycle();
     }
 
-    // this is the "standard" (smaller) size font
-    public float getBaseFontSize() {
-        return pBaseFontSize;
+    public void setTextSizes(ScaleInfo scaleInfo, int width) {
+        // calculate the size of the font to fill the screen
+        float padding = 2f*getPaddingLeft() + scaleInfo.scale(5);
+        largeTextSize = calculateDisplayFont(MAX_LARGE_TEXT, width, padding, scaleInfo);
+        smallTextSize = calculateDisplayFont(MAX_SMALL_TEXT, width, padding, scaleInfo);
+        setText(getText());
     }
 
-    public void setBaseFontSize(float size) {
-        pBaseFontSize = size;
+    private float calculateDisplayFont(String text, float width, float padding, ScaleInfo scaleInfo) {
+        float small = 1;
+        float large = scaleInfo.scale(55);
+
+        while (large - small > 0.25f) {
+            float mid = (large + small) / 2;
+            Paint p = getPaint();
+            p.setTextSize(mid);
+            float w = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP, p.measureText(text),
+                    getResources().getDisplayMetrics());
+            if (w <= width - padding) {
+                small = mid;
+            } else {
+                large = mid;
+            }
+        }
+        return small;
     }
 
-    // this is the threshold for switching to the smaller font
-    public int getLengthThreshold() {
-        return pLengthThreshold;
-    }
-
-    public void setLengthThreshold(int length) {
-        pLengthThreshold = length;
-    }
 
     public void setText(String text) {
         String temp = text.trim();
 
-        if (temp.length() > pLengthThreshold) {
+        if (temp.length() > MAX_LARGE_TEXT.length()) {
             this.setGravity(Gravity.AXIS_PULL_BEFORE + Gravity.CENTER);
             // no modification of either the text or the size
-            this.setTextSize(pBaseFontSize);
+            this.setTextSize(smallTextSize);
             super.setText(text);
         } else {
-            this.setGravity(Gravity.TOP);
-            this.setTextSize(pBaseFontSize * 2f);
             // adjust the padding
-            if (text.startsWith(" ")) {
-                text = text.substring(pLengthThreshold);
+            if (text.length() > MAX_LARGE_TEXT.length()) {
+                text = text.substring(text.length() - MAX_LARGE_TEXT.length());
             }
+
+            this.setGravity(Gravity.TOP);
+            this.setTextSize(largeTextSize);
             super.setText(text);
         }
     }

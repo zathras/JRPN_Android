@@ -30,7 +30,6 @@
             android:textSize="10dp"
             android:typeface="monospace"
             android:saveEnabled="false"
-            wrpn:lengthThreshold="20"
             wrpn:baseFontSize="10"
             android:inputType="text"
             android:textStyle="bold"

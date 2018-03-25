@@ -7,6 +7,5 @@
     </declare-styleable> 
     <declare-styleable name="DynamicEditText">
         <attr name="baseFontSize" format="float"/>
-        <attr name="lengthThreshold" format="integer" />
     </declare-styleable>   
 </resources>

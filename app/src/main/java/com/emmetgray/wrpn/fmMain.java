@@ -883,28 +883,7 @@ public class fmMain extends AppCompatActivity {
                 pnCalcFace.updateViewLayout(et, new AbsoluteLayout.LayoutParams(width,
                         height, x, y));
 
-                // calculate the size of the font to fill the screen
-                String mText = "00000000 00000000 00000000 00000000 .b.";
-                Paint mTextPaint = new Paint();
-                mTextPaint.setTypeface(Typeface.MONOSPACE);
-                float scale;
-                float padding = TypedValue.applyDimension(
-                        TypedValue.COMPLEX_UNIT_DIP, et.getPaddingLeft(),
-                        getResources().getDisplayMetrics());
-
-                for (scale = 50; scale > 0.25f; scale -= 0.25f) {
-                    mTextPaint.setTextSize(scale);
-                    float t = mTextPaint.measureText(mText);
-                    // convert to pixels
-                    float px = TypedValue.applyDimension(
-                            TypedValue.COMPLEX_UNIT_DIP, t, getResources()
-                                    .getDisplayMetrics());
-                    // this isn't an exact science, so we fudge the width a wee bit
-                    if (px < width*0.92f - (padding * 2))
-                        break;
-                }
-                et.setTextSize(scale);
-                et.setBaseFontSize(scale);
+                et.setTextSizes(scaleInfo, width);
                 continue;
             }
 
@@ -971,6 +950,7 @@ public class fmMain extends AppCompatActivity {
         // process a dummy key to refresh the display
         ProcessPacket(c.ProcessKey(-1));
     }
+
 
     // handle all of the resizing here.  I like precise control over
     // the location and sizes.

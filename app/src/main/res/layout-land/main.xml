@@ -31,7 +31,6 @@
             android:typeface="monospace"
             android:textStyle="bold"
             android:saveEnabled="false"
-            wrpn:lengthThreshold="20"
             wrpn:baseFontSize="10"
             android:inputType="text"
             android:background="#ffffff" />
