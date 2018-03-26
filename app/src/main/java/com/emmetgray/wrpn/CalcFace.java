@@ -147,7 +147,10 @@ public class CalcFace extends AbsoluteLayout {
 
     void resize() {
         Paint p = scaleInfo.yellowPaint;
-        p.setColor(Color.YELLOW);
+        // Color taken to match the F key.  This is a less intense
+        // yellow than Emmet's original, but I think it's more readable.
+        // Originally it was Color.YELLOW
+        p.setColor(Color.argb(255, 255, 231, 66));
         p.setStyle(Paint.Style.FILL);
         p.setStrokeWidth(1.1f * (float) scaleInfo.drawScaleNumerator / (float) scaleInfo.drawScaleDenominator);
         p.setStrokeJoin(Paint.Join.ROUND);

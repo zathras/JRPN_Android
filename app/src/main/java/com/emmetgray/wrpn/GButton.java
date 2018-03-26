@@ -43,7 +43,10 @@ public class GButton extends ImageButton {
         scaleInfo.whitePaint.setColor(Color.argb(255, 255, 255, 255));
         scaleInfo.bluePaint.setTextSize(scaleInfo.scale(90) / 10f);
         scaleInfo.bluePaint.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-        scaleInfo.bluePaint.setColor(Color.argb(255, 0, 100, 255));
+        // Color taken to match the G key.  This is a lighter
+        // blue than Emmet's original, but I think it's more readable.
+        // Originally it was 0,100,255
+        scaleInfo.bluePaint.setColor(Color.argb(255, 0, 156, 255));
     }
 
     public void setScaleInfo(ScaleInfo info) {
