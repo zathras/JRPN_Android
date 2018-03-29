@@ -24,7 +24,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.AbsoluteLayout;
 
-@SuppressWarnings("deprecation")
 public class CalcFace extends AbsoluteLayout {
 
     /**

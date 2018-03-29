@@ -14,7 +14,6 @@
 
 package com.emmetgray.wrpn;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -26,8 +25,7 @@ import android.widget.ImageButton;
 
 // A graphical button class that includes a few extra
 // properties (and some default values set the way I like 'em)
-@SuppressLint("AppCompatCustomView")
-public class GButton extends ImageButton {
+public class GButton extends android.support.v7.widget.AppCompatImageButton {
     private int pX, pY, pKeyCode;
 
     protected String whiteLabel;

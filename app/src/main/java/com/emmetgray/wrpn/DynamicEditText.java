@@ -1,9 +1,9 @@
 package com.emmetgray.wrpn;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Paint;
+import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -12,8 +12,7 @@ import android.widget.EditText;
 
 // a modification of the normal EditText box that allows for the size
 // of the font to dynamically change based upon the length of the string
-@SuppressLint("AppCompatCustomView")
-public class DynamicEditText extends EditText {
+public class DynamicEditText extends AppCompatEditText {
 
     private final static String MAX_LARGE_TEXT = "88888888888888888888";
     private final static String MAX_SMALL_TEXT = " 00000000 00000000 00000000 00000000 .b.";
