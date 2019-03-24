@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">WRPN</string>
-    <string name="app_title">WRPN 16c</string>
-    <string name="app_desc">Windows Reverse Polish Notation Calculator</string>
-    <string name="about_title">About WRPN</string>
+    <string name="app_name">JRPN</string>
+    <string name="app_title">JRPN 16c</string>
+    <string name="app_desc">Java Reverse Polish Notation Calculator</string>
+    <string name="about_title">About JRPN</string>
     <string name="menu_file">File</string>
     <string name="menu_file_open">Open Existing State&#8230;</string>
     <string name="menu_file_save">Save State</string>

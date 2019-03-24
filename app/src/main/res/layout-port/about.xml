@@ -20,12 +20,6 @@
             android:src="@mipmap/wrpn_small"
             android:layout_marginBottom="10dp"/>
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/about_egray_desc"
-            android:src="@mipmap/egray_small" />
     </LinearLayout>
 
     <LinearLayout
@@ -64,37 +58,14 @@
             android:text="@string/about_date"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
-         <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/about_author"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-         <TextView
-             android:id="@+id/textView6"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_marginRight="5dp"
-             android:text="@string/about_home"
-             android:textAppearance="?android:attr/textAppearanceSmall" />
-
-         <TextView
+        <TextView
              android:id="@+id/tvHomeURL"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:autoLink="web"
              android:textAppearance="?android:attr/textAppearanceSmall" />
 
-         <TextView
-             android:id="@+id/textView8"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_marginRight="5dp"
-             android:text="@string/about_email"
-             android:textAppearance="?android:attr/textAppearanceSmall" />
-
-         <TextView
+        <TextView
              android:id="@+id/tvEmail"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"

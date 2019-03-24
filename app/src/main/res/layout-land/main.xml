@@ -13,13 +13,13 @@
         android:background="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
 
-    <com.emmetgray.wrpn.CalcFace
+    <com.jovial.jrpn.CalcFace
         android:id="@+id/calc_face"
         android:background="@mipmap/background"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
 
-        <com.emmetgray.wrpn.DynamicEditText
+        <com.jovial.jrpn.DynamicEditText
             android:id="@+id/tbDisplay"
             android:layout_width="320dp"
             android:layout_height="50dp"
@@ -95,7 +95,7 @@
             android:textColor="#000000"
             android:textSize="7dp" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonC"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -107,7 +107,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonD"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -119,7 +119,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonE"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -131,7 +131,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonDiv"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -143,7 +143,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButton9"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -155,7 +155,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButton8"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -167,7 +167,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButton7"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -179,7 +179,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonGTO"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -191,7 +191,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonHEX"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -203,7 +203,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonDEC"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -215,7 +215,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButtonSqrt
+        <com.jovial.jrpn.GButtonSqrt
             android:id="@+id/GButtonOCT"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -227,7 +227,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonBIN"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -239,7 +239,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonOn"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -251,7 +251,7 @@
 			android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonRol"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -263,7 +263,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonXY"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -275,7 +275,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonBSP"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -287,7 +287,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButtonShift
+        <com.jovial.jrpn.GButtonShift
             android:id="@+id/GButtonFKey"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -299,7 +299,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn_fkey" />
 
-        <com.emmetgray.wrpn.GButtonShift
+        <com.jovial.jrpn.GButtonShift
             android:id="@+id/GButtonGKey"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -311,7 +311,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn_gkey" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButton4"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -323,7 +323,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButton5"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -335,7 +335,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButton6"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -347,7 +347,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonMul"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -359,7 +359,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonRS"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -371,7 +371,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonSST"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -383,7 +383,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButton1"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -395,7 +395,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButton2"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -407,7 +407,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonMin"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -419,7 +419,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButton3"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -431,7 +431,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonSTO"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -443,7 +443,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonRCL"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -455,7 +455,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButton0"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -467,7 +467,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonDp"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -479,7 +479,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonCHS"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -491,7 +491,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonPls"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -503,7 +503,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonA"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -515,7 +515,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonGSB"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -527,7 +527,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonB"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -539,7 +539,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButton
+        <com.jovial.jrpn.GButton
             android:id="@+id/GButtonF"
             android:layout_width="37dp"
             android:layout_height="33dp"
@@ -551,7 +551,7 @@
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
-        <com.emmetgray.wrpn.GButtonEnter
+        <com.jovial.jrpn.GButtonEnter
             android:id="@+id/GButtonEnt"
             android:layout_width="37dp"
             android:layout_height="84dp"
@@ -562,5 +562,5 @@
             wrpn:keyCode="54"
             android:onClick="GButton_Click"
             android:src="@drawable/bn_ent" />
-    </com.emmetgray.wrpn.CalcFace>
+    </com.jovial.jrpn.CalcFace>
 </LinearLayout>

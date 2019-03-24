@@ -1,38 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.emmetgray.wrpn">
+          package="com.jovial.jrpn">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
+                     android:maxSdkVersion="18" />
 
     <application
-        android:allowBackup="true"
-        android:description="@string/app_desc"
-        android:icon="@mipmap/icon"
-        android:label="@string/app_title"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity
-            android:name=".fmMain"
+            android:allowBackup="true"
+            android:description="@string/app_desc"
+            android:icon="@mipmap/icon"
             android:label="@string/app_title"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <activity
+                android:name=".fmMain"
+                android:label="@string/app_title"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".fmAbout"
-            android:label="@string/about_title"
-            android:theme="@android:style/Theme.Dialog"/>
+                android:name=".fmAbout"
+                android:label="@string/about_title"
+                android:theme="@android:style/Theme.Dialog"/>
         <activity
-            android:name=".fmBackPanel"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+                android:name=".fmBackPanel"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
-            android:name=".fmConfigure"
-            android:label="@string/menu_configure"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+                android:name=".fmConfigure"
+                android:label="@string/menu_configure"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>
 
 </manifest>
