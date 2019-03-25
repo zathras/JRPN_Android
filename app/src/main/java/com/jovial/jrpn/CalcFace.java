@@ -111,7 +111,7 @@ public class CalcFace extends AbsoluteLayout {
 
     public YellowText[] yellowText;
     private ScaleInfo scaleInfo;
-    private String faceText = "E M M E T - G R A Y / J O V I A L";
+    private static String faceText = "E M M E T - G R A Y / J O V I A L";
     private float faceTextWidth;
 
 
@@ -153,18 +153,24 @@ public class CalcFace extends AbsoluteLayout {
         p.setStyle(Paint.Style.FILL);
         p.setStrokeWidth(1.1f * (float) scaleInfo.drawScaleNumerator / (float) scaleInfo.drawScaleDenominator);
         p.setStrokeJoin(Paint.Join.ROUND);
-        p.setTextSize(scaleInfo.scale(100)/10f);
+        p.setTextSize(scaleInfo.scale(10f));
         p.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
 
         p = scaleInfo.faceTextPaint;
         p.setColor(Color.argb(255, 231, 231, 231));
         p.setStyle(Paint.Style.FILL);
-        p.setTextSize(scaleInfo.scale(120)/10f);
+        p.setTextSize(scaleInfo.scale(12f));
         p.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
 
         p=scaleInfo.faceBgPaint;
         p.setColor(Color.argb(255, 66, 66, 66));
         p.setStyle(Paint.Style.FILL);
+
+        p=scaleInfo.logoPaint;
+        p.setColor(Color.argb(255, 0, 0, 0));
+        p.setTextSize(scaleInfo.scale(14f));
+        p.setTypeface(Typeface.SANS_SERIF);
+        p.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
 
         for (YellowText yt : yellowText) {
             yt.alignText(scaleInfo);

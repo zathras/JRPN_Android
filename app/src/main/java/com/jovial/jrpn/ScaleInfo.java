@@ -36,6 +36,7 @@ public class ScaleInfo {
     final Paint yellowPaint = new Paint();  // The yellow text above the keys
     final Paint faceTextPaint = new Paint();  // The "EMMET-GRAY/JOVIAL" text on the face
     final Paint faceBgPaint = new Paint();    // Matching the background color
+    final Paint logoPaint = new Paint();      // The black part and the font for the logo
 
     public int scale(int num) {
         return num * drawScaleNumerator / drawScaleDenominator;
@@ -46,6 +47,18 @@ public class ScaleInfo {
     }
 
     public int scaleY(int num) {
+        return num * drawScaleNumeratorY / drawScaleDenominatorY;
+    }
+
+    public float scale(float num) {
+        return num * drawScaleNumerator / drawScaleDenominator;
+    }
+
+    public float scaleX(float num) {
+        return num * drawScaleNumeratorX / drawScaleDenominatorX;
+    }
+
+    public float scaleY(float num) {
         return num * drawScaleNumeratorY / drawScaleDenominatorY;
     }
 }
