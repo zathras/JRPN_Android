@@ -19,6 +19,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
 import android.net.Uri;
@@ -85,7 +89,7 @@ public class fmMain extends AppCompatActivity {
         ActionBar bar = getSupportActionBar();
         bar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_USE_LOGO | ActionBar.DISPLAY_SHOW_TITLE);
         bar.setTitle(R.string.app_title);
-        bar.setLogo(R.mipmap.jupiter);
+        bar.setLogo(R.mipmap.jupiter_actionbar);
 
         // resize it a bit... it takes up too much room
         TypedValue tv = new TypedValue();
