@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-	<comment>WRPN Configuration</comment>
+	<comment>JRPN Configuration</comment>
 	<entry key="PrgmMemoryLines">302</entry>
 	<entry key="SyncConversions">true</entry>
 	<entry key="SleepDelay">1500</entry>
 	<entry key="NumRegisters">32</entry>
-	<entry key="HomeURL">http://www.wrpn.emmet-gray.com</entry>
-	<entry key="Email">egray1@hot.rr.com</entry>
+	<entry key="HomeURL">http://jrpn.jovial.com</entry>
 	<entry key="Version">6.0.8</entry>
-	<entry key="HelpURL">http://www.wrpn.emmet-gray.com/UsersGuide.html</entry>
+	<entry key="HelpURL">http://jrpn.jovial.com/UsersGuide.html</entry>
 	<entry key="Orientation">Auto</entry>
 </properties>

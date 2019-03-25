@@ -281,7 +281,7 @@ public class CalcState {
         s.startTag("", "CalcState");
         s.attribute("", "saved", new java.util.Date().toString());
 
-        s.comment("WRPN CalcState v"
+        s.comment("JRPN CalcState v"
                 + fmMain.prop.getProperty("Version").substring(0, 3));
 
         s.startTag("", "SaveOnExit");

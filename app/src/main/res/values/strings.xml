@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">JRPN</string>
     <string name="app_title">JRPN 16c</string>
-    <string name="app_desc">Java Reverse Polish Notation Calculator</string>
+    <string name="app_desc">Jovial Reverse Polish Notation Calculator</string>
     <string name="about_title">About JRPN</string>
     <string name="menu_file">File</string>
     <string name="menu_file_open">Open Existing State&#8230;</string>
@@ -42,7 +42,7 @@
     <string name="about_home">Home:</string>
     <string name="about_email">"Email: "</string>
     <string name="button_ok">OK</string>
-    <string name="about_wrpn_desc">Icon of WRPN</string>
+    <string name="about_jrpn_desc">Icon of JRPN</string>
     <string name="about_egray_desc">Photo of Emmet Gray</string>
     <string name="error_title_save">Error Saving State</string>
     <string name="error_title_read">Error Reading State</string>

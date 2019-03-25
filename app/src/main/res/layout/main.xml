@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:wrpn="http://schemas.android.com/apk/res-auto"
+    xmlns:jrpn="http://schemas.android.com/apk/res-auto"
     android:id="@+id/my_layout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -19,6 +19,14 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
 
+        <com.jovial.jrpn.IconView
+                android:id="@+id/jupiterIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_x="30dp"
+                android:layout_y="600dp"
+                android:visibility="visible"/>
+
         <com.jovial.jrpn.DynamicEditText
             android:id="@+id/tbDisplay"
             android:layout_width="266dp"
@@ -30,7 +38,7 @@
             android:textSize="10dp"
             android:typeface="monospace"
             android:saveEnabled="false"
-            wrpn:baseFontSize="10"
+            jrpn:baseFontSize="10"
             android:inputType="text"
             android:textStyle="bold"
             android:background="#ffffff"
@@ -102,9 +110,9 @@
             android:layout_height="33dp"
             android:layout_x="27dp"
             android:layout_y="230dp"
-            wrpn:originalX="27"
-            wrpn:originalY="230"
-            wrpn:keyCode="10"
+            jrpn:originalX="27"
+            jrpn:originalY="230"
+            jrpn:keyCode="10"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -114,9 +122,9 @@
             android:layout_height="33dp"
             android:layout_x="73dp"
             android:layout_y="230dp"
-            wrpn:originalX="73"
-            wrpn:originalY="230"
-            wrpn:keyCode="11"
+            jrpn:originalX="73"
+            jrpn:originalY="230"
+            jrpn:keyCode="11"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -126,9 +134,9 @@
             android:layout_height="33dp"
             android:layout_x="119dp"
             android:layout_y="230dp"
-            wrpn:originalX="119"
-            wrpn:originalY="230"
-            wrpn:keyCode="12"
+            jrpn:originalX="119"
+            jrpn:originalY="230"
+            jrpn:keyCode="12"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -138,9 +146,9 @@
             android:layout_height="33dp"
             android:layout_x="165dp"
             android:layout_y="230dp"
-            wrpn:originalX="165"
-            wrpn:originalY="230"
-            wrpn:keyCode="13"
+            jrpn:originalX="165"
+            jrpn:originalY="230"
+            jrpn:keyCode="13"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -150,9 +158,9 @@
             android:layout_height="33dp"
             android:layout_x="211dp"
             android:layout_y="230dp"
-            wrpn:originalX="211"
-            wrpn:originalY="230"
-            wrpn:keyCode="14"
+            jrpn:originalX="211"
+            jrpn:originalY="230"
+            jrpn:keyCode="14"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -162,9 +170,9 @@
             android:layout_height="33dp"
             android:layout_x="257dp"
             android:layout_y="230dp"
-            wrpn:originalX="257"
-            wrpn:originalY="230"
-            wrpn:keyCode="15"
+            jrpn:originalX="257"
+            jrpn:originalY="230"
+            jrpn:keyCode="15"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -174,9 +182,9 @@
             android:layout_height="33dp"
             android:layout_x="27dp"
             android:layout_y="174dp"
-            wrpn:originalX="27"
-            wrpn:originalY="174"
-            wrpn:keyCode="33"
+            jrpn:originalX="27"
+            jrpn:originalY="174"
+            jrpn:keyCode="33"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -186,9 +194,9 @@
             android:layout_height="33dp"
             android:layout_x="73dp"
             android:layout_y="174dp"
-            wrpn:originalX="73"
-            wrpn:originalY="174"
-            wrpn:keyCode="34"
+            jrpn:originalX="73"
+            jrpn:originalY="174"
+            jrpn:keyCode="34"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -198,9 +206,9 @@
             android:layout_height="33dp"
             android:layout_x="119dp"
             android:layout_y="174dp"
-            wrpn:originalX="119"
-            wrpn:originalY="174"
-            wrpn:keyCode="35"
+            jrpn:originalX="119"
+            jrpn:originalY="174"
+            jrpn:keyCode="35"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -210,9 +218,9 @@
             android:layout_height="33dp"
             android:layout_x="165dp"
             android:layout_y="174dp"
-            wrpn:originalX="165"
-            wrpn:originalY="174"
-            wrpn:keyCode="36"
+            jrpn:originalX="165"
+            jrpn:originalY="174"
+            jrpn:keyCode="36"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -222,9 +230,9 @@
             android:layout_height="33dp"
             android:layout_x="211dp"
             android:layout_y="174dp"
-            wrpn:originalX="211"
-            wrpn:originalY="174"
-            wrpn:keyCode="37"
+            jrpn:originalX="211"
+            jrpn:originalY="174"
+            jrpn:keyCode="37"
             android:onClick="GButton_Click"
             android:src="@drawable/bn"/>
 
@@ -234,9 +242,9 @@
             android:layout_height="33dp"
             android:layout_x="257dp"
             android:layout_y="174dp"
-            wrpn:originalX="257"
-            wrpn:originalY="174"
-            wrpn:keyCode="38"
+            jrpn:originalX="257"
+            jrpn:originalY="174"
+            jrpn:keyCode="38"
             android:onClick="GButton_Click"
             android:src="@drawable/bn"/>
 
@@ -246,9 +254,9 @@
             android:layout_height="33dp"
             android:layout_x="27dp"
             android:layout_y="118dp"
-            wrpn:originalX="27"
-            wrpn:originalY="118"
-            wrpn:keyCode="65"
+            jrpn:originalX="27"
+            jrpn:originalY="118"
+            jrpn:keyCode="65"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -258,9 +266,9 @@
             android:layout_height="33dp"
             android:layout_x="73dp"
             android:layout_y="118dp"
-            wrpn:originalX="73"
-            wrpn:originalY="118"
-            wrpn:keyCode="51"
+            jrpn:originalX="73"
+            jrpn:originalY="118"
+            jrpn:keyCode="51"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -270,9 +278,9 @@
             android:layout_height="33dp"
             android:layout_x="119dp"
             android:layout_y="118dp"
-            wrpn:originalX="119"
-            wrpn:originalY="118"
-            wrpn:keyCode="52"
+            jrpn:originalX="119"
+            jrpn:originalY="118"
+            jrpn:keyCode="52"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -282,9 +290,9 @@
             android:layout_height="33dp"
             android:layout_x="165dp"
             android:layout_y="118dp"
-            wrpn:originalX="165"
-            wrpn:originalY="118"
-            wrpn:keyCode="53"
+            jrpn:originalX="165"
+            jrpn:originalY="118"
+            jrpn:keyCode="53"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -294,9 +302,9 @@
             android:layout_height="33dp"
             android:layout_x="211dp"
             android:layout_y="118dp"
-            wrpn:originalX="211"
-            wrpn:originalY="118"
-            wrpn:keyCode="66"
+            jrpn:originalX="211"
+            jrpn:originalY="118"
+            jrpn:keyCode="66"
             android:onClick="GButton_Click"
             android:src="@drawable/bn_fkey" />
 
@@ -306,9 +314,9 @@
             android:layout_height="33dp"
             android:layout_x="257dp"
             android:layout_y="118dp"
-            wrpn:originalX="257"
-            wrpn:originalY="118"
-            wrpn:keyCode="67"
+            jrpn:originalX="257"
+            jrpn:originalY="118"
+            jrpn:keyCode="67"
             android:onClick="GButton_Click"
             android:src="@drawable/bn_gkey" />
 
@@ -318,9 +326,9 @@
             android:layout_height="33dp"
             android:layout_x="27dp"
             android:layout_y="286dp"
-            wrpn:originalX="27"
-            wrpn:originalY="286"
-            wrpn:keyCode="49"
+            jrpn:originalX="27"
+            jrpn:originalY="286"
+            jrpn:keyCode="49"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -330,9 +338,9 @@
             android:layout_height="33dp"
             android:layout_x="73dp"
             android:layout_y="286dp"
-            wrpn:originalX="73"
-            wrpn:originalY="286"
-            wrpn:keyCode="50"
+            jrpn:originalX="73"
+            jrpn:originalY="286"
+            jrpn:keyCode="50"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -342,9 +350,9 @@
             android:layout_height="33dp"
             android:layout_x="119dp"
             android:layout_y="286dp"
-            wrpn:originalX="119"
-            wrpn:originalY="286"
-            wrpn:keyCode="7"
+            jrpn:originalX="119"
+            jrpn:originalY="286"
+            jrpn:keyCode="7"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -354,9 +362,9 @@
             android:layout_height="33dp"
             android:layout_x="165dp"
             android:layout_y="286dp"
-            wrpn:originalX="165"
-            wrpn:originalY="285"
-            wrpn:keyCode="8"
+            jrpn:originalX="165"
+            jrpn:originalY="285"
+            jrpn:keyCode="8"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -366,9 +374,9 @@
             android:layout_height="33dp"
             android:layout_x="211dp"
             android:layout_y="286dp"
-            wrpn:originalX="211"
-            wrpn:originalY="286"
-            wrpn:keyCode="9"
+            jrpn:originalX="211"
+            jrpn:originalY="286"
+            jrpn:keyCode="9"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -378,9 +386,9 @@
             android:layout_height="33dp"
             android:layout_x="257dp"
             android:layout_y="286dp"
-            wrpn:originalX="257"
-            wrpn:originalY="286"
-            wrpn:keyCode="16"
+            jrpn:originalX="257"
+            jrpn:originalY="286"
+            jrpn:keyCode="16"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -390,9 +398,9 @@
             android:layout_height="33dp"
             android:layout_x="27dp"
             android:layout_y="342dp"
-            wrpn:originalX="27"
-            wrpn:originalY="342"
-            wrpn:keyCode="68"
+            jrpn:originalX="27"
+            jrpn:originalY="342"
+            jrpn:keyCode="68"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -402,9 +410,9 @@
             android:layout_height="33dp"
             android:layout_x="73dp"
             android:layout_y="342dp"
-            wrpn:originalX="73"
-            wrpn:originalY="342"
-            wrpn:keyCode="69"
+            jrpn:originalX="73"
+            jrpn:originalY="342"
+            jrpn:keyCode="69"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -414,9 +422,9 @@
             android:layout_height="33dp"
             android:layout_x="119dp"
             android:layout_y="342dp"
-            wrpn:originalX="119"
-            wrpn:originalY="342"
-            wrpn:keyCode="4"
+            jrpn:originalX="119"
+            jrpn:originalY="342"
+            jrpn:keyCode="4"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -426,9 +434,9 @@
             android:layout_height="33dp"
             android:layout_x="165dp"
             android:layout_y="342dp"
-            wrpn:originalX="165"
-            wrpn:originalY="342"
-            wrpn:keyCode="5"
+            jrpn:originalX="165"
+            jrpn:originalY="342"
+            jrpn:keyCode="5"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -438,9 +446,9 @@
             android:layout_height="33dp"
             android:layout_x="211dp"
             android:layout_y="342dp"
-            wrpn:originalX="211"
-            wrpn:originalY="342"
-            wrpn:keyCode="6"
+            jrpn:originalX="211"
+            jrpn:originalY="342"
+            jrpn:keyCode="6"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -450,9 +458,9 @@
             android:layout_height="33dp"
             android:layout_x="257dp"
             android:layout_y="342dp"
-            wrpn:originalX="257"
-            wrpn:originalY="342"
-            wrpn:keyCode="32"
+            jrpn:originalX="257"
+            jrpn:originalY="342"
+            jrpn:keyCode="32"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -462,10 +470,10 @@
             android:layout_height="89dp"
             android:layout_x="73dp"
             android:layout_y="398dp"
-            wrpn:keyCode="54"
+            jrpn:keyCode="54"
             android:onClick="GButton_Click"
-            wrpn:originalX="73"
-            wrpn:originalY="398"
+            jrpn:originalX="73"
+            jrpn:originalY="398"
             android:src="@drawable/bn_ent" />
 
         <com.jovial.jrpn.GButton
@@ -474,9 +482,9 @@
             android:layout_height="33dp"
             android:layout_x="119dp"
             android:layout_y="398dp"
-            wrpn:originalX="119"
-            wrpn:originalY="398"
-            wrpn:keyCode="1"
+            jrpn:originalX="119"
+            jrpn:originalY="398"
+            jrpn:keyCode="1"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -486,9 +494,9 @@
             android:layout_height="33dp"
             android:layout_x="165dp"
             android:layout_y="398dp"
-            wrpn:originalX="165"
-            wrpn:originalY="398"
-            wrpn:keyCode="2"
+            jrpn:originalX="165"
+            jrpn:originalY="398"
+            jrpn:keyCode="2"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -498,9 +506,9 @@
             android:layout_height="33dp"
             android:layout_x="211dp"
             android:layout_y="398dp"
-            wrpn:originalX="211"
-            wrpn:originalY="398"
-            wrpn:keyCode="3"
+            jrpn:originalX="211"
+            jrpn:originalY="398"
+            jrpn:keyCode="3"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -510,9 +518,9 @@
             android:layout_height="33dp"
             android:layout_x="257dp"
             android:layout_y="398dp"
-            wrpn:originalX="257"
-            wrpn:originalY="398"
-            wrpn:keyCode="48"
+            jrpn:originalX="257"
+            jrpn:originalY="398"
+            jrpn:keyCode="48"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -522,9 +530,9 @@
             android:layout_height="33dp"
             android:layout_x="119dp"
             android:layout_y="454dp"
-            wrpn:originalX="119"
-            wrpn:originalY="454"
-            wrpn:keyCode="0"
+            jrpn:originalX="119"
+            jrpn:originalY="454"
+            jrpn:keyCode="0"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -534,9 +542,9 @@
             android:layout_height="33dp"
             android:layout_x="165dp"
             android:layout_y="454dp"
-            wrpn:originalX="165"
-            wrpn:originalY="454"
-            wrpn:keyCode="72"
+            jrpn:originalX="165"
+            jrpn:originalY="454"
+            jrpn:keyCode="72"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -546,9 +554,9 @@
             android:layout_height="33dp"
             android:layout_x="211dp"
             android:layout_y="454dp"
-            wrpn:originalX="211"
-            wrpn:originalY="454"
-            wrpn:keyCode="73"
+            jrpn:originalX="211"
+            jrpn:originalY="454"
+            jrpn:keyCode="73"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
 
@@ -558,9 +566,9 @@
             android:layout_height="33dp"
             android:layout_x="257dp"
             android:layout_y="454dp"
-            wrpn:originalX="257"
-            wrpn:originalY="454"
-            wrpn:keyCode="64"
+            jrpn:originalX="257"
+            jrpn:originalY="454"
+            jrpn:keyCode="64"
             android:onClick="GButton_Click"
             android:src="@drawable/bn" />
     </com.jovial.jrpn.CalcFace>

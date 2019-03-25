@@ -16,8 +16,8 @@
             android:id="@+id/imageView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/about_wrpn_desc"
-            android:src="@mipmap/wrpn_small"
+            android:contentDescription="@string/about_jrpn_desc"
+            android:src="@mipmap/jrpn_small"
             android:layout_marginBottom="10dp"/>
 
     </LinearLayout>

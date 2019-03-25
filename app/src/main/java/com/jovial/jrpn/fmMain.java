@@ -19,12 +19,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.graphics.Paint;
-import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -61,8 +60,9 @@ public class fmMain extends AppCompatActivity {
     private TextView lbFKey, lbGKey, lbCarry, lbOverflow, lbPrgm;
     private DynamicEditText tbDisplay;
     private CalcFace pnCalcFace;
+    private IconView jupiterIcon;
     private final ScaleInfo scaleInfo = new ScaleInfo();
-    public static final String TAG = "WRPN";
+    public static final String TAG = "JRPN";
 
     public final static int CALC_WIDTH = 512;
     public final static int CALC_HEIGHT = 320;
@@ -79,11 +79,13 @@ public class fmMain extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
         // configure the toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-        getSupportActionBar().setTitle(R.string.app_title);
+        ActionBar bar = getSupportActionBar();
+        bar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_USE_LOGO | ActionBar.DISPLAY_SHOW_TITLE);
+        bar.setTitle(R.string.app_title);
+        bar.setLogo(R.mipmap.jupiter);
 
         // resize it a bit... it takes up too much room
         TypedValue tv = new TypedValue();
@@ -108,14 +110,13 @@ public class fmMain extends AppCompatActivity {
         prop.setProperty("PrgmMemoryLines", "302");
         prop.setProperty("SleepDelay", "1500");
         prop.setProperty("SyncConversions", "true");
-        prop.setProperty("HomeURL", "http://www.wrpn.emmet-gray.com");
-        prop.setProperty("Email", "egray1@hot.rr.com");
+        prop.setProperty("HomeURL", "http://jrpn.jovial.com");
         prop.setProperty("Version", version);
         prop.setProperty("HelpURL",
-                "http://www.wrpn.emmet-gray.com/UsersGuide.html");
+                "http://jrpn.jovial.com/UsersGuide.html");
         prop.setProperty("Orientation", "Auto");
 
-        File config = new File(getExternalFilesDir(null), "wrpn.config");
+        File config = new File(getExternalFilesDir(null), "jrpn.config");
         try {
             // load the configuration from the file
             if (config.exists())
@@ -133,7 +134,7 @@ public class fmMain extends AppCompatActivity {
             try {
                 sw = new BufferedWriter(new FileWriter(config));
                 BufferedReader sr = new BufferedReader(new InputStreamReader(
-                        this.getResources().openRawResource(R.raw.wrpnconfig)));
+                        this.getResources().openRawResource(R.raw.jrpnconfig)));
 
                 // copy the file
                 while ((line = sr.readLine()) != null) {
@@ -173,6 +174,7 @@ public class fmMain extends AppCompatActivity {
         lbPrgm = (TextView) findViewById(R.id.lbPrgm);
         tbDisplay = (DynamicEditText) findViewById(R.id.tbDisplay);
         pnCalcFace = (CalcFace) findViewById(R.id.calc_face);
+        jupiterIcon = (IconView) findViewById(R.id.jupiterIcon);
 
         // attach our Resize Listener to the layout
         pnCalcFace.SetOnResizeListener(listener);
@@ -360,6 +362,7 @@ public class fmMain extends AppCompatActivity {
                 btn.setScaleInfo(scaleInfo);
             }
         }
+        jupiterIcon.setScaleInfo(scaleInfo);
     }
 
 

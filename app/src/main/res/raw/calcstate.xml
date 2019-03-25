@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CalcState>
-	<!--WRPN CalcState v6.0 -->
+	<!--JRPN CalcState v6.0 -->
 	<SaveOnExit>true</SaveOnExit>
 	<WordSize>16</WordSize>
 	<OpMode>Float</OpMode>
