@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.widget.AbsoluteLayout;
 
 public class IconView extends android.view.View {
 
@@ -14,6 +15,8 @@ public class IconView extends android.view.View {
     private static String logoText = "JRPN";
     private float logoTextWidth;
     private Bitmap jupiter;
+    private RectF jupiterDest;
+    private float border;
 
     public IconView(Context context) {
         super(context);
@@ -38,21 +41,35 @@ public class IconView extends android.view.View {
         jupiter = BitmapFactory.decodeResource(getResources(), R.mipmap.jupiter);
     }
 
+    public void resize(AbsoluteLayout parent) {
+        logoTextWidth = scaleInfo.logoPaint.measureText(logoText);  // Move to resize
+        int width = (int) (logoTextWidth * 1.2f);
+        int height = (int) (width * 1.4f);
+        int x, y;
+        if (scaleInfo.isLandscape) {
+            x = scaleInfo.scaleX(458);
+            y = scaleInfo.scaleY(19);
+        } else {
+            x = scaleInfo.scaleX(23);
+            y = scaleInfo.scaleY(449);
+        }
+        border = scaleInfo.scale(0.015f * width);
+        float destOffset = border * 1.2f;
+        jupiterDest = new RectF(destOffset, destOffset, width - destOffset, width - destOffset);
+        scaleInfo.logoPaint.setStrokeWidth(border/2f);
+        parent.updateViewLayout(this, new AbsoluteLayout.LayoutParams(width, height, x, y));
+    }
+
     @Override
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         int h = getHeight();
         int w = getWidth();
-        logoTextWidth = scaleInfo.logoPaint.measureText(logoText);  // Move to resize
         canvas.drawRect(0, 0, w, h, scaleInfo.logoPaint);
-        float border = scaleInfo.scale(0.015f * w);
         canvas.drawRect(border, border, w-border, h-border, scaleInfo.faceTextPaint);  // Silver
-        scaleInfo.logoPaint.setStrokeWidth(border/2f);
-        RectF dest = new RectF(border, border, w - border, w - border);
-        canvas.drawBitmap(jupiter, null, dest, scaleInfo.logoPaint);
+        canvas.drawBitmap(jupiter, null, jupiterDest, scaleInfo.logoPaint);
         canvas.drawLine(0f, h*0.72f, w, h*0.72f, scaleInfo.logoPaint);  // Black line
-        canvas.drawText("JRPN", (w - logoTextWidth) * 0.5f, h * 0.95f, scaleInfo.logoPaint);
-        // TODO
+        canvas.drawText("JRPN", (w - logoTextWidth) * 0.5f, h * 0.94f, scaleInfo.logoPaint);
     }
 
 }

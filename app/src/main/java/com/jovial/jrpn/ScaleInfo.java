@@ -24,6 +24,7 @@ import android.graphics.Paint;
  * A little data holder for the stuff that changes when we're resized.
  */
 public class ScaleInfo {
+    boolean isLandscape = false;
     int drawScaleNumerator = 1;
     int drawScaleDenominator = 1;
     int drawScaleNumeratorX = 1;

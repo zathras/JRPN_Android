@@ -38,9 +38,7 @@
     <string name="menu_help_about">About&#8230;</string>
     <string name="about_version">"Version: "</string>
     <string name="about_date">"Date: "</string>
-    <string name="about_author">Author: Emmet Gray</string>
-    <string name="about_home">Home:</string>
-    <string name="about_email">"Email: "</string>
+    <string name="about_home_URL"><a href="https://jrpn.jovial.com/">https://jrpn.jovial.com/</a></string>
     <string name="button_ok">OK</string>
     <string name="about_jrpn_desc">Icon of JRPN</string>
     <string name="about_egray_desc">Photo of Emmet Gray</string>

@@ -11,6 +11,7 @@ local.properties
 build
 captures
 .externalNativeBuild
+app/release
 
 #
 # Stuff copied from https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore

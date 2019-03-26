@@ -61,7 +61,7 @@ public class DynamicEditText extends AppCompatEditText {
                     TypedValue.COMPLEX_UNIT_DIP, p.measureText(text),
                     getResources().getDisplayMetrics());
 		    */
-	    float w = p.measureText(text);
+            float w = p.measureText(text);
             if (w <= width - padding) {
                 small = mid;
             } else {

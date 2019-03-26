@@ -64,7 +64,8 @@ public class fmMain extends AppCompatActivity {
     private TextView lbFKey, lbGKey, lbCarry, lbOverflow, lbPrgm;
     private DynamicEditText tbDisplay;
     private CalcFace pnCalcFace;
-    private IconView jupiterIcon;
+    private IconView jupiterIconView;
+    private GButton bnON;
     private final ScaleInfo scaleInfo = new ScaleInfo();
     public static final String TAG = "JRPN";
 
@@ -84,7 +85,7 @@ public class fmMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         // configure the toolbar
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         ActionBar bar = getSupportActionBar();
         bar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_USE_LOGO | ActionBar.DISPLAY_SHOW_TITLE);
@@ -100,13 +101,14 @@ public class fmMain extends AppCompatActivity {
         myToolbar.getLayoutParams().height = (int) (actionBarHeight * 0.66);
 
         // get the version number
-        String version = "1.0";
+        String version = BuildConfig.VERSION_NAME;
         try {
             version =  getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
         } catch (Exception e) {
             // ignore errors
             Log.e(TAG, "Version: " + e.getMessage());
         }
+
 
         // set some defaults if there is no config file.
         prop = new Properties();
@@ -178,7 +180,7 @@ public class fmMain extends AppCompatActivity {
         lbPrgm = (TextView) findViewById(R.id.lbPrgm);
         tbDisplay = (DynamicEditText) findViewById(R.id.tbDisplay);
         pnCalcFace = (CalcFace) findViewById(R.id.calc_face);
-        jupiterIcon = (IconView) findViewById(R.id.jupiterIcon);
+        jupiterIconView = (IconView) findViewById(R.id.jupiterIcon);
 
         // attach our Resize Listener to the layout
         pnCalcFace.SetOnResizeListener(listener);
@@ -233,7 +235,7 @@ public class fmMain extends AppCompatActivity {
         GButton bnMin = findButton(R.id.GButtonMin);
         GButton bnMul = findButton(R.id.GButtonMul);
         GButton bnOCT = findButton(R.id.GButtonOCT);
-        GButton bnON = findButton(R.id.GButtonOn);
+        bnON = findButton(R.id.GButtonOn);
         GButton bnPls = findButton(R.id.GButtonPls);
         GButton bnRCL = findButton(R.id.GButtonRCL);
         GButton bnRS = findButton(R.id.GButtonRS);
@@ -366,7 +368,7 @@ public class fmMain extends AppCompatActivity {
                 btn.setScaleInfo(scaleInfo);
             }
         }
-        jupiterIcon.setScaleInfo(scaleInfo);
+        jupiterIconView.setScaleInfo(scaleInfo);
     }
 
 
@@ -467,9 +469,6 @@ public class fmMain extends AppCompatActivity {
                             }
                         });
                 save_file.show();
-                return true;
-            case R.id.file_exit:
-                finish();
                 return true;
             case R.id.mode_float:
                 cs.setOpMode(CalcState.CalcOpMode.Float);
@@ -833,6 +832,7 @@ public class fmMain extends AppCompatActivity {
     private void doResize(int w, int h) {
         if (h < w) {
             // landscape mode
+            scaleInfo.isLandscape = true;
             if (512 * w / CALC_WIDTH <= 512 * h / CALC_HEIGHT) {
                 scaleInfo.drawScaleNumerator = w;
                 scaleInfo.drawScaleDenominator = CALC_WIDTH;
@@ -847,6 +847,7 @@ public class fmMain extends AppCompatActivity {
         } else {
             // portrait mode.  The calculator face image for portrait
             // mode has width CALC_HEIGHT, and height CALC_WIDTH
+            scaleInfo.isLandscape = false;
             if (512 * h / CALC_WIDTH <= 512 * w / CALC_HEIGHT) {
                 scaleInfo.drawScaleNumerator = h;
                 scaleInfo.drawScaleDenominator = CALC_WIDTH;
@@ -898,7 +899,7 @@ public class fmMain extends AppCompatActivity {
             if (v instanceof TextView) {
                 TextView tv = (TextView) v;
 
-                if (h > w) {
+                if (h > w) {  // Portrait
                     // the originalX location is stored in the Tag
                     x = Integer.parseInt(tv.getTag().toString()) * w
                             / CALC_HEIGHT;
@@ -909,7 +910,7 @@ public class fmMain extends AppCompatActivity {
                 } else {
                     x = Integer.parseInt(tv.getTag().toString()) * w
                             / CALC_WIDTH;
-                    y = 55 * h / CALC_HEIGHT;
+                    y = 59 * h / CALC_HEIGHT;
                     width = 30 * w / CALC_WIDTH;
                     height = AbsoluteLayout.LayoutParams.WRAP_CONTENT;
                 }
@@ -918,7 +919,7 @@ public class fmMain extends AppCompatActivity {
                 pnCalcFace.updateViewLayout(tv, new AbsoluteLayout.LayoutParams(width,
                         height, x, y));
 
-                tv.setTextSize(scaleInfo.scale(40) / 10f);
+                tv.setTextSize(scaleInfo.scale(4f));
                 continue;
             }
 
@@ -953,7 +954,9 @@ public class fmMain extends AppCompatActivity {
             }
         }
 
-        pnCalcFace.resize();  // Sets scaleInfo.yellowPaint
+        pnCalcFace.resize();  // Sets scaleInfo, including yellowPaint
+
+        jupiterIconView.resize(pnCalcFace);
         // process a dummy key to refresh the display
         ProcessPacket(c.ProcessKey(-1));
     }
@@ -993,6 +996,9 @@ public class fmMain extends AppCompatActivity {
         } else if (pkt.getStart() == DisplayPacket.StartType.RunLine) {
             // just run one line at a time
             RunLine();
+        }
+        if (bn == bnON) {
+            finish();
         }
     }
 

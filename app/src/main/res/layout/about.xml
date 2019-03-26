@@ -1,83 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:baselineAligned="false"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="horizontal">
+              android:baselineAligned="false"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="horizontal"
+              android:layout_marginRight="16dip"
+              android:layout_marginLeft="16dip"
+              android:layout_marginTop="16dip"
+              android:layout_marginBottom="16dip">
 
     <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="2dp"
-        android:orientation="vertical" >
+            android:id="@+id/linearLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/about_jrpn_desc"
-            android:src="@mipmap/jrpn_small"
-            android:layout_marginBottom="10dp"/>
-
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/about_jrpn_desc"
+                android:src="@mipmap/jrpn_small"
+                android:layout_marginBottom="10dp" android:layout_marginRight="16dip"/>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="0dip"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.7"
-        android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
+            android:id="@+id/linearLayout2"
+            android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:text="@string/app_title"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="35dp"/>
+            android:layout_weight="0.7"
+            android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_desc"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_title"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="35dp"/>
 
         <TextView
-            android:id="@+id/tvVersion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/about_version"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_desc"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
 
         <TextView
-            android:id="@+id/tvDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/about_date"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:id="@+id/tvVersion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_version"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
 
         <TextView
-             android:id="@+id/tvHomeURL"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:autoLink="web"
-             android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_date"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
 
         <TextView
-             android:id="@+id/tvEmail"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:autoLink="email"
-             android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:id="@+id/tvHomeURL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:autoLink="web"
+                android:textAppearance="?android:attr/textAppearanceSmall" android:text="@string/about_home_URL"/>
 
-         <Button
-             android:id="@+id/button1"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_gravity="left"
-             android:onClick="Close"
-             android:text="@string/button_ok"/>
+        <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+        <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoLink="email"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+        <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:onClick="Close"
+                android:text="@string/button_ok"/>
     </LinearLayout>
 </LinearLayout>
+

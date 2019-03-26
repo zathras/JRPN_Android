@@ -168,7 +168,11 @@ public class CalcFace extends AbsoluteLayout {
 
         p=scaleInfo.logoPaint;
         p.setColor(Color.argb(255, 0, 0, 0));
-        p.setTextSize(scaleInfo.scale(14f));
+        if (scaleInfo.isLandscape) {
+            p.setTextSize(scaleInfo.scale(12f));
+        } else {
+            p.setTextSize(scaleInfo.scale(10f));
+        }
         p.setTypeface(Typeface.SANS_SERIF);
         p.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
 

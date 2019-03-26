@@ -16,6 +16,10 @@ public class fmAbout extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.about);
+		TextView tvVersion = (TextView) findViewById(R.id.tvVersion);
+		tvVersion.setText("Version:  " + BuildConfig.VERSION_NAME);
+		TextView tvDate = (TextView) findViewById(R.id.tvDate);
+		tvDate.setText("Built:  " + BuildConfig.BUILD_TIME.toLocaleString());
 	}
 
 	// let's blow this pop stand!
