@@ -753,78 +753,91 @@ public class fmMain extends AppCompatActivity {
 
     // Map a few keys to their corresponding buttons
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        switch (keyCode) {
-            case KeyEvent.KEYCODE_0:
-                ProcessPacket(c.ProcessKey(Calculator.k.Key0.index()));
-                break;
-            case KeyEvent.KEYCODE_1:
-                ProcessPacket(c.ProcessKey(Calculator.k.Key1.index()));
-                break;
-            case KeyEvent.KEYCODE_2:
-                ProcessPacket(c.ProcessKey(Calculator.k.Key2.index()));
-                break;
-            case KeyEvent.KEYCODE_3:
-                ProcessPacket(c.ProcessKey(Calculator.k.Key3.index()));
-                break;
-            case KeyEvent.KEYCODE_4:
-                ProcessPacket(c.ProcessKey(Calculator.k.Key4.index()));
-                break;
-            case KeyEvent.KEYCODE_5:
-                ProcessPacket(c.ProcessKey(Calculator.k.Key5.index()));
-                break;
-            case KeyEvent.KEYCODE_6:
-                ProcessPacket(c.ProcessKey(Calculator.k.Key6.index()));
-                break;
-            case KeyEvent.KEYCODE_7:
-                ProcessPacket(c.ProcessKey(Calculator.k.Key7.index()));
-                break;
-            case KeyEvent.KEYCODE_8:
-                ProcessPacket(c.ProcessKey(Calculator.k.Key8.index()));
-                break;
-            case KeyEvent.KEYCODE_9:
-                ProcessPacket(c.ProcessKey(Calculator.k.Key9.index()));
-                break;
-            case KeyEvent.KEYCODE_A:
-                ProcessPacket(c.ProcessKey(Calculator.k.KeyA.index()));
-                break;
-            case KeyEvent.KEYCODE_B:
-                ProcessPacket(c.ProcessKey(Calculator.k.KeyB.index()));
-                break;
-            case KeyEvent.KEYCODE_C:
-                ProcessPacket(c.ProcessKey(Calculator.k.KeyC.index()));
-                break;
-            case KeyEvent.KEYCODE_D:
-                ProcessPacket(c.ProcessKey(Calculator.k.KeyD.index()));
-                break;
-            case KeyEvent.KEYCODE_E:
-                ProcessPacket(c.ProcessKey(Calculator.k.KeyE.index()));
-                break;
-            case KeyEvent.KEYCODE_F:
-                ProcessPacket(c.ProcessKey(Calculator.k.KeyF.index()));
-                break;
-            case KeyEvent.KEYCODE_PLUS:
-                ProcessPacket(c.ProcessKey(Calculator.k.KeyAdd.index()));
-                break;
-            case KeyEvent.KEYCODE_MINUS:
-                ProcessPacket(c.ProcessKey(Calculator.k.KeyMin.index()));
-                break;
-            case KeyEvent.KEYCODE_STAR:
-                ProcessPacket(c.ProcessKey(Calculator.k.KeyMul.index()));
-                break;
-            case KeyEvent.KEYCODE_SLASH:
-                ProcessPacket(c.ProcessKey(Calculator.k.KeyDiv.index()));
-                break;
-            case KeyEvent.KEYCODE_PERIOD:
-                ProcessPacket(c.ProcessKey(Calculator.k.KeyDp.index()));
-                break;
-            case KeyEvent.KEYCODE_ENTER:
-                ProcessPacket(c.ProcessKey(Calculator.k.KeyEnt.index()));
-                break;
-            case KeyEvent.KEYCODE_DEL:
-                ProcessPacket(c.ProcessKey(Calculator.k.KeyBSP.index()));
-                break;
-            default:
-                return super.onKeyDown(keyCode, event);
+        if ((event.getMetaState() & KeyEvent.META_SHIFT_ON) != 0) {
+            switch (keyCode) {
+                case KeyEvent.KEYCODE_8:
+                    ProcessPacket(c.ProcessKey(Calculator.k.KeyMul.index()));
+                    break;
+                case KeyEvent.KEYCODE_EQUALS:
+                    ProcessPacket(c.ProcessKey(Calculator.k.KeyAdd.index()));
+                    break;
+                default:
+                    return super.onKeyDown(keyCode, event);
+            }
+        } else {
+            switch (keyCode) {
+                case KeyEvent.KEYCODE_0:
+                    ProcessPacket(c.ProcessKey(Calculator.k.Key0.index()));
+                    break;
+                case KeyEvent.KEYCODE_1:
+                    ProcessPacket(c.ProcessKey(Calculator.k.Key1.index()));
+                    break;
+                case KeyEvent.KEYCODE_2:
+                    ProcessPacket(c.ProcessKey(Calculator.k.Key2.index()));
+                    break;
+                case KeyEvent.KEYCODE_3:
+                    ProcessPacket(c.ProcessKey(Calculator.k.Key3.index()));
+                    break;
+                case KeyEvent.KEYCODE_4:
+                    ProcessPacket(c.ProcessKey(Calculator.k.Key4.index()));
+                    break;
+                case KeyEvent.KEYCODE_5:
+                    ProcessPacket(c.ProcessKey(Calculator.k.Key5.index()));
+                    break;
+                case KeyEvent.KEYCODE_6:
+                    ProcessPacket(c.ProcessKey(Calculator.k.Key6.index()));
+                    break;
+                case KeyEvent.KEYCODE_7:
+                    ProcessPacket(c.ProcessKey(Calculator.k.Key7.index()));
+                    break;
+                case KeyEvent.KEYCODE_8:
+                    ProcessPacket(c.ProcessKey(Calculator.k.Key8.index()));
+                    break;
+                case KeyEvent.KEYCODE_9:
+                    ProcessPacket(c.ProcessKey(Calculator.k.Key9.index()));
+                    break;
+                case KeyEvent.KEYCODE_A:
+                    ProcessPacket(c.ProcessKey(Calculator.k.KeyA.index()));
+                    break;
+                case KeyEvent.KEYCODE_B:
+                    ProcessPacket(c.ProcessKey(Calculator.k.KeyB.index()));
+                    break;
+                case KeyEvent.KEYCODE_C:
+                    ProcessPacket(c.ProcessKey(Calculator.k.KeyC.index()));
+                    break;
+                case KeyEvent.KEYCODE_D:
+                    ProcessPacket(c.ProcessKey(Calculator.k.KeyD.index()));
+                    break;
+                case KeyEvent.KEYCODE_E:
+                    ProcessPacket(c.ProcessKey(Calculator.k.KeyE.index()));
+                    break;
+                case KeyEvent.KEYCODE_F:
+                    ProcessPacket(c.ProcessKey(Calculator.k.KeyF.index()));
+                    break;
+                case KeyEvent.KEYCODE_PLUS:
+                    ProcessPacket(c.ProcessKey(Calculator.k.KeyAdd.index()));
+                    break;
+                case KeyEvent.KEYCODE_MINUS:
+                    ProcessPacket(c.ProcessKey(Calculator.k.KeyMin.index()));
+                    break;
+                case KeyEvent.KEYCODE_STAR:
+                    ProcessPacket(c.ProcessKey(Calculator.k.KeyMul.index()));
+                    break;
+                case KeyEvent.KEYCODE_SLASH:
+                    ProcessPacket(c.ProcessKey(Calculator.k.KeyDiv.index()));
+                    break;
+                case KeyEvent.KEYCODE_PERIOD:
+                    ProcessPacket(c.ProcessKey(Calculator.k.KeyDp.index()));
+                    break;
+                case KeyEvent.KEYCODE_ENTER:
+                    ProcessPacket(c.ProcessKey(Calculator.k.KeyEnt.index()));
+                    break;
+                case KeyEvent.KEYCODE_DEL:
+                    ProcessPacket(c.ProcessKey(Calculator.k.KeyBSP.index()));
+                    break;
+                default:
+                    return super.onKeyDown(keyCode, event);
+            }
         }
         return true;
     }
@@ -891,11 +904,11 @@ public class fmMain extends AppCompatActivity {
                 pnCalcFace.updateViewLayout(et, new AbsoluteLayout.LayoutParams(width,
                         height, x, y));
 
-                et.setTextSizes(scaleInfo, width);
+                et.setTextSizes(scaleInfo, height, width);
                 continue;
             }
 
-            // do the TextViews (there are 5)
+            // do the TextViews (there are 5):  lbFKey, lbGKey, ...
             if (v instanceof TextView) {
                 TextView tv = (TextView) v;
 
@@ -910,7 +923,7 @@ public class fmMain extends AppCompatActivity {
                 } else {
                     x = Integer.parseInt(tv.getTag().toString()) * w
                             / CALC_WIDTH;
-                    y = 59 * h / CALC_HEIGHT;
+                    y = 57 * h / CALC_HEIGHT;
                     width = 30 * w / CALC_WIDTH;
                     height = AbsoluteLayout.LayoutParams.WRAP_CONTENT;
                 }

@@ -40,27 +40,22 @@ public class DynamicEditText extends AppCompatEditText {
         a.recycle();
     }
 
-    public void setTextSizes(ScaleInfo scaleInfo, int width) {
+    public void setTextSizes(ScaleInfo scaleInfo, int height, int width) {
         // calculate the size of the font to fill the screen
-        float padding = 2f*getPaddingLeft(); // @@  + scaleInfo.scale(5);
-        largeTextSize = calculateDisplayFont(MAX_LARGE_TEXT, width, padding, scaleInfo);
-        smallTextSize = calculateDisplayFont(MAX_SMALL_TEXT, width, padding, scaleInfo);
+        float padding = 2f*getPaddingLeft();
+        largeTextSize = calculateDisplayFont(MAX_LARGE_TEXT, height, width, padding, scaleInfo);
+        smallTextSize = calculateDisplayFont(MAX_SMALL_TEXT, height, width, padding, scaleInfo);
         setText(getText());
     }
 
-    private float calculateDisplayFont(String text, float width, float padding, ScaleInfo scaleInfo) {
-        float small = 1;
-        float large = scaleInfo.scale(55);
+    private float calculateDisplayFont(String text, float height, float width, float padding, ScaleInfo scaleInfo) {
+        float small = scaleInfo.scale(10);
+        float large = scaleInfo.scale(29);
 
-        while (large - small > 0.25f) {
+        while (large - small > 0.05f) {
             float mid = (large + small) / 2;
             Paint p = getPaint();
             p.setTextSize(mid);
-	    /* @@
-            float w = TypedValue.applyDimension(
-                    TypedValue.COMPLEX_UNIT_DIP, p.measureText(text),
-                    getResources().getDisplayMetrics());
-		    */
             float w = p.measureText(text);
             if (w <= width - padding) {
                 small = mid;
