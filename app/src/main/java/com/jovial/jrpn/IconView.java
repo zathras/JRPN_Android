@@ -7,7 +7,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.widget.AbsoluteLayout;
 
 public class IconView extends android.view.View {
 
@@ -41,7 +40,7 @@ public class IconView extends android.view.View {
         jupiter = BitmapFactory.decodeResource(getResources(), R.mipmap.jupiter);
     }
 
-    public void resize(AbsoluteLayout parent) {
+    public void resize(MyAbsoluteLayout parent) {
         logoTextWidth = scaleInfo.logoPaint.measureText(logoText);  // Move to resize
         int width = (int) (logoTextWidth * 1.2f);
         int height = (int) (width * 1.4f);
@@ -57,7 +56,7 @@ public class IconView extends android.view.View {
         float destOffset = border * 1.2f;
         jupiterDest = new RectF(destOffset, destOffset, width - destOffset, width - destOffset);
         scaleInfo.logoPaint.setStrokeWidth(border/2f);
-        parent.updateViewLayout(this, new AbsoluteLayout.LayoutParams(width, height, x, y));
+        parent.updateViewLayout(this, new MyAbsoluteLayout.LayoutParams(width, height, x, y));
     }
 
     @Override

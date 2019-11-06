@@ -21,12 +21,14 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -34,12 +36,12 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.MenuInflater;
+import android.view.OrientationEventListener;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AbsoluteLayout;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -74,9 +76,14 @@ public class fmMain extends AppCompatActivity {
     public final static int BUTTON_WIDTH = 37;
     public final static int BUTTON_HEIGHT = 33;
 
+    public static Typeface EMBEDDED_FONT = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        if (EMBEDDED_FONT == null) {
+            EMBEDDED_FONT = ResourcesCompat.getFont(this, R.font.deja_vu_sans_bold);
+        }
         // programmatically remove the status bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -182,9 +189,8 @@ public class fmMain extends AppCompatActivity {
         pnCalcFace = (CalcFace) findViewById(R.id.calc_face);
         jupiterIconView = (IconView) findViewById(R.id.jupiterIcon);
 
-        // attach our Resize Listener to the layout
-        pnCalcFace.SetOnResizeListener(listener);
         pnCalcFace.setFocusable(true);
+        pnCalcFace.setMain(this);
 
         cs = new CalcState();
         c = new Calculator(cs);
@@ -842,7 +848,7 @@ public class fmMain extends AppCompatActivity {
         return true;
     }
 
-    private void doResize(int w, int h) {
+    void doResize(int w, int h) {
         if (h < w) {
             // landscape mode
             scaleInfo.isLandscape = true;
@@ -901,7 +907,7 @@ public class fmMain extends AppCompatActivity {
                 }
 
                 //et.layout(x, y, x + width, y + height);
-                pnCalcFace.updateViewLayout(et, new AbsoluteLayout.LayoutParams(width,
+                pnCalcFace.updateViewLayout(et, new MyAbsoluteLayout.LayoutParams(width,
                         height, x, y));
 
                 et.setTextSizes(scaleInfo, height, width);
@@ -919,17 +925,17 @@ public class fmMain extends AppCompatActivity {
 
                     y = 55 * h / CALC_WIDTH;
                     width = 30 * w / CALC_HEIGHT;
-                    height = AbsoluteLayout.LayoutParams.WRAP_CONTENT;
+                    height = MyAbsoluteLayout.LayoutParams.WRAP_CONTENT;
                 } else {
                     x = Integer.parseInt(tv.getTag().toString()) * w
                             / CALC_WIDTH;
                     y = 57 * h / CALC_HEIGHT;
                     width = 30 * w / CALC_WIDTH;
-                    height = AbsoluteLayout.LayoutParams.WRAP_CONTENT;
+                    height = MyAbsoluteLayout.LayoutParams.WRAP_CONTENT;
                 }
 
                 //tv.layout(x, y, x + width, y + height);
-                pnCalcFace.updateViewLayout(tv, new AbsoluteLayout.LayoutParams(width,
+                pnCalcFace.updateViewLayout(tv, new MyAbsoluteLayout.LayoutParams(width,
                         height, x, y));
 
                 tv.setTextSize(scaleInfo.scale(4f));
@@ -961,8 +967,8 @@ public class fmMain extends AppCompatActivity {
                     }
                     width = BUTTON_WIDTH * w / CALC_WIDTH;
                 }
-                pnCalcFace.updateViewLayout(btn, new AbsoluteLayout.LayoutParams(width,
-                        height, x, y));
+                pnCalcFace.updateViewLayout(btn, new MyAbsoluteLayout.LayoutParams(width,
+                         height, x, y));
                 btn.alignText(width, height);
             }
         }
@@ -970,19 +976,10 @@ public class fmMain extends AppCompatActivity {
         pnCalcFace.resize();  // Sets scaleInfo, including yellowPaint
 
         jupiterIconView.resize(pnCalcFace);
+
         // process a dummy key to refresh the display
         ProcessPacket(c.ProcessKey(-1));
     }
-
-
-    // handle all of the resizing here.  I like precise control over
-    // the location and sizes.
-    OnResizeListener listener = new OnResizeListener() {
-        @Override
-        public void OnResize(int id, int w, int h, int oldw, int oldh) {
-            doResize(w, h);
-        }
-    };
 
     // the button click event
     public void GButton_Click(View v) {

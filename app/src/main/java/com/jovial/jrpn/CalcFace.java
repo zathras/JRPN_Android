@@ -22,9 +22,8 @@ import android.content.Context;
 import android.graphics.*;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.widget.AbsoluteLayout;
 
-public class CalcFace extends AbsoluteLayout {
+public class CalcFace extends MyAbsoluteLayout {
 
     /**
      * This represents the bit of yellow text above the buttons
@@ -107,13 +106,11 @@ public class CalcFace extends AbsoluteLayout {
     }
 
 
-    OnResizeListener pListener = null;
-
     public YellowText[] yellowText;
     private ScaleInfo scaleInfo;
     private static String faceText = "E M M E T - G R A Y / J O V I A L";
     private float faceTextWidth;
-
+    private fmMain myMain;
 
     public CalcFace(Context context) {
         super(context);
@@ -127,17 +124,14 @@ public class CalcFace extends AbsoluteLayout {
         super(context, attrs, defStyle);
     }
 
-    public void SetOnResizeListener(OnResizeListener listener) {
-        pListener = listener;
+    void setMain(fmMain myMain) {
+        this.myMain = myMain;
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-
-        if (pListener != null) {
-            pListener.OnResize(this.getId(), w, h, oldw, oldh);
-        }
+        myMain.doResize(w, h);
     }
 
     void setScaleInfo(ScaleInfo scaleInfo) {
@@ -154,13 +148,13 @@ public class CalcFace extends AbsoluteLayout {
         p.setStrokeWidth(1.1f * (float) scaleInfo.drawScaleNumerator / (float) scaleInfo.drawScaleDenominator);
         p.setStrokeJoin(Paint.Join.ROUND);
         p.setTextSize(scaleInfo.scale(10f));
-        p.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+        p.setTypeface(fmMain.EMBEDDED_FONT);
 
         p = scaleInfo.faceTextPaint;
         p.setColor(Color.argb(255, 231, 231, 231));
         p.setStyle(Paint.Style.FILL);
         p.setTextSize(scaleInfo.scale(12f));
-        p.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+        p.setTypeface(fmMain.EMBEDDED_FONT);
 
         p=scaleInfo.faceBgPaint;
         p.setColor(Color.argb(255, 66, 66, 66));
@@ -173,8 +167,7 @@ public class CalcFace extends AbsoluteLayout {
         } else {
             p.setTextSize(scaleInfo.scale(10f));
         }
-        p.setTypeface(Typeface.SANS_SERIF);
-        p.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+        p.setTypeface(fmMain.EMBEDDED_FONT);
 
         for (YellowText yt : yellowText) {
             yt.alignText(scaleInfo);

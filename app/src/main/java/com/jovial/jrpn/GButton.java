@@ -37,10 +37,10 @@ public class GButton extends android.support.v7.widget.AppCompatImageButton {
 
     public static void setupScaleInfo(ScaleInfo scaleInfo) {
         scaleInfo.whitePaint.setTextSize(scaleInfo.scale(14f));
-        scaleInfo.whitePaint.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+        scaleInfo.whitePaint.setTypeface(fmMain.EMBEDDED_FONT);
         scaleInfo.whitePaint.setColor(Color.argb(255, 255, 255, 255));
         scaleInfo.bluePaint.setTextSize(scaleInfo.scale(9f));
-        scaleInfo.bluePaint.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+        scaleInfo.bluePaint.setTypeface(fmMain.EMBEDDED_FONT);
         // Color taken to match the G key.  This is a lighter
         // blue than Emmet's original, but I think it's more readable.
         // Originally it was 0,100,255
@@ -50,6 +50,7 @@ public class GButton extends android.support.v7.widget.AppCompatImageButton {
     public void setScaleInfo(ScaleInfo info) {
         scaleInfo = info;
     }
+
     public GButton(Context context) {
         super(context);
         init();
