@@ -51,6 +51,10 @@ public class IconView extends android.view.View {
         } else {
             x = scaleInfo.scaleX(23);
             y = scaleInfo.scaleY(449);
+            int maxY = scaleInfo.scaleY(488);   // EMMET-GRAY text starts at 490
+            if (y + height > maxY) {
+                y = maxY - height;
+            }
         }
         border = scaleInfo.scale(0.015f * width);
         float destOffset = border * 1.2f;

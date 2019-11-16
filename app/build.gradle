@@ -5,13 +5,13 @@ apply plugin: 'com.android.application'
 // apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.jovial.jrpn"
         minSdkVersion 15
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 2
-        versionName "1.1 beta"
+        versionName "1.1 beta 2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     signingConfigs {
@@ -24,6 +24,8 @@ android {
             }
         }
         release {
+            // NOTE:  These environment variables can be configured
+            //        in ~/.gradle/gradle.properties
             storePassword(RELEASE_STORE_PASSWORD)
             storeFile(file(RELEASE_STORE_FILE))
             keyAlias(RELEASE_KEY_ALIAS)
@@ -42,7 +44,7 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     // implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
