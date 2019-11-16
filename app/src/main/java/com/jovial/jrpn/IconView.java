@@ -42,7 +42,7 @@ public class IconView extends android.view.View {
 
     public void resize(MyAbsoluteLayout parent) {
         logoTextWidth = scaleInfo.logoPaint.measureText(logoText);  // Move to resize
-        int width = (int) (logoTextWidth * 1.2f);
+        int width = (int) (logoTextWidth * 1.25f);
         int height = (int) (width * 1.4f);
         int x, y;
         if (scaleInfo.isLandscape) {
@@ -71,8 +71,8 @@ public class IconView extends android.view.View {
         canvas.drawRect(0, 0, w, h, scaleInfo.logoPaint);
         canvas.drawRect(border, border, w-border, h-border, scaleInfo.faceTextPaint);  // Silver
         canvas.drawBitmap(jupiter, null, jupiterDest, scaleInfo.logoPaint);
-        canvas.drawLine(0f, h*0.72f, w, h*0.72f, scaleInfo.logoPaint);  // Black line
-        canvas.drawText("JRPN", (w - logoTextWidth) * 0.5f, h * 0.94f, scaleInfo.logoPaint);
+        canvas.drawLine(0f, h*0.69f, w, h*0.69f, scaleInfo.logoPaint);  // Black line
+        canvas.drawText("JRPN", (w - logoTextWidth) * 0.5f, h * 0.89f, scaleInfo.logoPaint);
     }
 
 }
