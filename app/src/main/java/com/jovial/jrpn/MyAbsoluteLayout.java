@@ -66,7 +66,7 @@ public class MyAbsoluteLayout extends ViewGroup {
 
     @Override
     protected ViewGroup.LayoutParams generateDefaultLayoutParams() {
-        return new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, 0, 0);
+        return new LayoutParams(0, 0, 0, 0);
     }
 
     @Override
@@ -118,10 +118,8 @@ public class MyAbsoluteLayout extends ViewGroup {
          * Creates a new set of layout parameters with the specified width,
          * height and location.
          *
-         * @param width the width, either {@link #MATCH_PARENT},
-        {@link #WRAP_CONTENT} or a fixed size in pixels
-         * @param height the height, either {@link #MATCH_PARENT},
-        {@link #WRAP_CONTENT} or a fixed size in pixels
+         * @param width the width, in pixels
+         * @param height the height, in pixels
          * @param x the X location of the child
          * @param y the Y location of the child
          */
