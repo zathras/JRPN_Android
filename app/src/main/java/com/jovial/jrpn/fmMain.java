@@ -925,20 +925,20 @@ public class fmMain extends AppCompatActivity {
 
                     y = 55 * h / CALC_WIDTH;
                     width = 30 * w / CALC_HEIGHT;
-                    height = MyAbsoluteLayout.LayoutParams.WRAP_CONTENT;
                 } else {
                     x = Integer.parseInt(tv.getTag().toString()) * w
                             / CALC_WIDTH;
                     y = 57 * h / CALC_HEIGHT;
                     width = 30 * w / CALC_WIDTH;
-                    height = MyAbsoluteLayout.LayoutParams.WRAP_CONTENT;
                 }
 
                 //tv.layout(x, y, x + width, y + height);
+                tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, scaleInfo.scale(4f));
+                height = Math.round(tv.getTextSize() * 1.5f);
+                    // Note that getTextSize() returns different unites than setTextSize().
                 pnCalcFace.updateViewLayout(tv, new MyAbsoluteLayout.LayoutParams(width,
                         height, x, y));
 
-                tv.setTextSize(scaleInfo.scale(4f));
                 continue;
             }
 

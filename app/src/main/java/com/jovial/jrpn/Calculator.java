@@ -157,6 +157,9 @@ public class Calculator {
                 key = k.Refresh;
             } else {
                 key = k.toK(CalcKey + Prefix);
+                if (key == null) {
+                    key = k.Refresh;
+                }
             }
         }
 
