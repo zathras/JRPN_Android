@@ -80,7 +80,7 @@ public class fmConfigure extends AppCompatActivity {
         fmMain.prop.setProperty("NumRegisters", num_reg.getText().toString());
         fmMain.prop.setProperty("Orientation", orientation.getSelectedItem().toString());
 
-        File config = new File(getExternalFilesDir(null), "jrpn.config");
+        File config = new File(getFilesDir(), "jrpn.config");
         try {
             // save the changes
             fmMain.prop.storeToXML(new FileOutputStream(config), null);

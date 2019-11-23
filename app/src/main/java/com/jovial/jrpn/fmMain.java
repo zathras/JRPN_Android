@@ -129,7 +129,7 @@ public class fmMain extends AppCompatActivity {
                 "http://jrpn.jovial.com/UsersGuide.html");
         prop.setProperty("Orientation", "Auto");
 
-        File config = new File(getExternalFilesDir(null), "jrpn.config");
+        File config = new File(getFilesDir(), "jrpn.config");
         try {
             // load the configuration from the file
             if (config.exists())
@@ -427,7 +427,7 @@ public class fmMain extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.file_open:
                 // create a list of files at the correct location
-                final File datadir = getExternalFilesDir(null);
+                final File datadir = getFilesDir();
                 FilterBy filter = new FilterBy("xml");
                 final String[] files = datadir.list(filter);
 
@@ -462,7 +462,7 @@ public class fmMain extends AppCompatActivity {
                                 if (!filename.toLowerCase(Locale.US).endsWith(".xml")) {
                                     filename += ".xml";
                                 }
-                                File fullpath = new File(getExternalFilesDir(null), filename);
+                                File fullpath = new File(getFilesDir(), filename);
                                 SaveState(fullpath.getPath());
                             }
                         });
@@ -614,7 +614,7 @@ public class fmMain extends AppCompatActivity {
 
     // Load the saved Calculator State from the default file
     private void LoadState() {
-        File CalcState = new File(getExternalFilesDir(null), "CalcState.xml");
+        File CalcState = new File(getFilesDir(), "CalcState.xml");
         if (CalcState.exists()) {
             LoadState(CalcState.getPath());
         }
@@ -720,7 +720,7 @@ public class fmMain extends AppCompatActivity {
 
     // Save the Calculator state to the default file
     private void SaveState() {
-        File CalcState = new File(getExternalFilesDir(null), "CalcState.xml");
+        File CalcState = new File(getFilesDir(), "CalcState.xml");
         SaveState(CalcState.getPath());
     }
 
