@@ -72,7 +72,8 @@ public class IconView extends android.view.View {
         canvas.drawRect(border, border, w-border, h-border, scaleInfo.faceTextPaint);  // Silver
         canvas.drawBitmap(jupiter, null, jupiterDest, scaleInfo.logoPaint);
         canvas.drawLine(0f, h*0.69f, w, h*0.69f, scaleInfo.logoPaint);  // Black line
-        canvas.drawText("JRPN", (w - logoTextWidth) * 0.5f, h * 0.89f, scaleInfo.logoPaint);
+        canvas.drawText(logoText, (w - logoTextWidth) * 0.55f, h * 0.89f, scaleInfo.logoPaint);
+        // 0.55 instead of 0.5 because the "J" in the bundled font is a little funny
     }
 
 }

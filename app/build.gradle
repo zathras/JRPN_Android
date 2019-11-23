@@ -10,8 +10,8 @@ android {
         applicationId "com.jovial.jrpn"
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 3
-        versionName "1.1 beta 2"
+        versionCode 5
+        versionName "1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     signingConfigs {
