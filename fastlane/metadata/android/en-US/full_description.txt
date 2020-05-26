@@ -1,0 +1,10 @@
+
+Programmer's calculator based on Emmet Gray's WRPN 16c, which simulates
+an HP 16c.  This is an RPN-based calculator that works in floating point,
+and integers expressed in hex, decimal, octal or binary.  I modified Emmet's 
+WRPN (with permission) so that it uses rendered fonts for the keys. This 
+makes them look nice and crisp on high resolution displays.
+
+I offer this software as-is, with no guarantee of any kind. The source is 
+available on github. There's also a desktop Java version -- see 
+https://jrpn.jovial.com/ for both.
