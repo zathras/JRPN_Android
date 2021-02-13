@@ -5,8 +5,12 @@ import com.jovial.jrpn.R;
 import android.app.Activity;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 //The "vanity plate"
 public class fmAbout extends Activity {
@@ -19,7 +23,7 @@ public class fmAbout extends Activity {
 		TextView tvVersion = (TextView) findViewById(R.id.tvVersion);
 		tvVersion.setText("Version:  " + BuildConfig.VERSION_NAME);
 		TextView tvDate = (TextView) findViewById(R.id.tvDate);
-		tvDate.setText("Built:  " + BuildConfig.BUILD_TIME.toLocaleString());
+		tvDate.setText("Built:  " + (new SimpleDateFormat()).format(new Date()));
 	}
 
 	// let's blow this pop stand!
