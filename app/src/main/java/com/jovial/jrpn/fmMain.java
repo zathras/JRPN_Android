@@ -288,7 +288,7 @@ public class fmMain extends AppCompatActivity {
         bn5.setBlueLabel("CF");
         bn6.setWhiteLabel("6");
         bn6.setBlueLabel("F?");
-        bnMul.setWhiteLabel("X");
+        bnMul.setWhiteLabel("\u00D7");
         bnMul.setBlueLabel("DBL\u00D7");  // DBL×
         bnRS.setWhiteLabel("R/S");
         bnRS.setBlueLabel("P/R");
@@ -296,7 +296,7 @@ public class fmMain extends AppCompatActivity {
         bnSST.setBlueLabel("BST");
         bnRol.setWhiteLabel("R\u2193");  // R↓
         bnRol.setBlueLabel("R\u2191");   // R↑
-        bnXY.setWhiteLabel("x\u21FFy");  // x⇿y
+        bnXY.setWhiteLabel("x\u2B0Cy");  // x⇿y
         bnXY.setBlueLabel("PSE");
         bnBSP.setWhiteLabel("BSP");
         bnBSP.setBlueLabel("CLx");
@@ -308,7 +308,7 @@ public class fmMain extends AppCompatActivity {
         bn2.setBlueLabel("x<0");
         bn3.setWhiteLabel("3");
         bn3.setBlueLabel("x>y");
-        bnMin.setWhiteLabel("-");
+        bnMin.setWhiteLabel("\u2212");
         bnMin.setBlueLabel("x>0");
         bnON.setWhiteLabel("ON");
         bnON.setBlueLabel("");
@@ -339,8 +339,8 @@ public class fmMain extends AppCompatActivity {
                 new CalcFace.YellowText(bn8, "MASKR"),
                 new CalcFace.YellowText(bn9, "RMD"),
                 new CalcFace.YellowText(bnDiv, "XOR"),
-                new CalcFace.YellowText(bnGSB, "x\u21FF(i)"),  // x⇿(i)
-                new CalcFace.YellowText(bnGTO, "x\u21FFI"),  // x⇿I
+                new CalcFace.YellowText(bnGSB, "x\u2B0C(i)"),  // x⇿(i)
+                new CalcFace.YellowText(bnGTO, "x\u2B0CI"),  // x⇿I
                 new CalcFace.YellowMultiText(bnHEX, bnBIN, 0, "SHOW"),
                 new CalcFace.YellowText(bn4, "SB"),
                 new CalcFace.YellowText(bn5, "CB"),
