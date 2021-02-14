@@ -15,6 +15,9 @@
 package com.jovial.jrpn;
 
 import android.app.AlertDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -31,6 +34,7 @@ import android.os.Bundle;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.TypedValue;
@@ -198,8 +202,37 @@ public class fmMain extends AppCompatActivity {
 
         initScreen();
 
+        tbDisplay.setLongClickable(true);
+        tbDisplay.setOnLongClickListener((new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showCopyMenu();
+                return true;
+            }
+        }));
+
         // Note that doResize() will be called for us after onCreate()
         // is finished.
+    }
+
+    private void showCopyMenu() {
+        PopupMenu menu = new PopupMenu(fmMain.this, tbDisplay);
+        menu.getMenuInflater().inflate(R.menu.display_copy_popup, menu.getMenu());
+        menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                copyDisplayText();
+                return true;
+            }
+        });
+        menu.show();
+    }
+
+    private void copyDisplayText() {
+        String text = tbDisplay.getText().toString();
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("JRPN Result", text);
+        clipboard.setPrimaryClip(clip);
     }
 
     private GButton findButton(int id) {
@@ -376,6 +409,7 @@ public class fmMain extends AppCompatActivity {
         }
         jupiterIconView.setScaleInfo(scaleInfo);
     }
+
 
 
     // if coming back from a pause
