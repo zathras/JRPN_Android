@@ -3,4 +3,7 @@
     <item
         android:id = "@+id/copy_display_text"
         android:title = "Copy" />
+    <item
+        android:id = "@+id/paste_display_text"
+        android:title = "Paste" />
 </menu>

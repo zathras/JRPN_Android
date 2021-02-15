@@ -48,6 +48,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -218,10 +219,19 @@ public class fmMain extends AppCompatActivity {
     private void showCopyMenu() {
         PopupMenu menu = new PopupMenu(fmMain.this, tbDisplay);
         menu.getMenuInflater().inflate(R.menu.display_copy_popup, menu.getMenu());
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        boolean hasData = !getClipboardText().isEmpty();
+        menu.getMenu().findItem(R.id.paste_display_text).setEnabled(hasData);
         menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
-                copyDisplayText();
+                if (menuItem.getItemId() == R.id.copy_display_text) {
+                    copyDisplayText();
+                } else if (menuItem.getItemId() == R.id.paste_display_text) {
+                    pasteDisplayText();
+                } else {
+                    return false;
+                }
                 return true;
             }
         });
@@ -233,6 +243,40 @@ public class fmMain extends AppCompatActivity {
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clip = ClipData.newPlainText("JRPN Result", text);
         clipboard.setPrimaryClip(clip);
+    }
+
+    private void pasteDisplayText() {
+        String message = null;
+        String text = getClipboardText();
+        if (text == null || "".equals(text)) {
+            message = "Clipboard is empty";
+        } else {
+            try {
+                c.PasteToDisplay(text.toString());
+                ProcessPacket(c.ProcessKey(-1));
+            } catch (Exception ex) {
+                message = "\"" + text + "\":  " + ex;
+            }
+        }
+        if (message != null) {
+            Toast t = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+            t.show();
+        }
+    }
+
+    // Returns a non-null, possibly empty string
+    private String getClipboardText() {
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData d = clipboard.getPrimaryClip();
+        if (d == null || d.getItemCount() == 0) {
+            return "";
+        } else {
+            CharSequence text = d.getItemAt(0).coerceToText(this);
+            if (text == null) {
+                return "";
+            }
+            return text.toString();
+        }
     }
 
     private GButton findButton(int id) {

@@ -3373,9 +3373,14 @@ public class Calculator {
         }
     }
 
-    // Provide the ability to copy text directly into the RawDisplay
-    public void ImportRawDisplay(String text) throws Exception {
+    public void PasteToDisplay(String text) throws Exception {
         try {
+            if (StackDisable) {
+                StackDisable = false;
+            } else {
+                cs.getStack().Push(cs.getStack().getX());
+            }
+            RawDisplay.setLength(0);
             ConvertInput(text);
         } catch (Exception ex) {
             RawDisplay.setLength(0);

@@ -13,13 +13,13 @@ if (keystorePropertiesFile.exists()) {
 // apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         applicationId "com.jovial.jrpn"
         minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 6
-        versionName "1.1.2"
+        targetSdkVersion 29
+        versionCode 7
+        versionName "1.1.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         buildConfigField "long", "BUILD_TIMESTAMP", System.currentTimeMillis() + "L"
     }
