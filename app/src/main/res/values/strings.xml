@@ -8,6 +8,8 @@
     <string name="menu_file_open">Open Existing State&#8230;</string>
     <string name="menu_file_save">Save State</string>
     <string name="menu_file_saveas">Save State As&#8230;</string>
+    <string name="menu_file_copy_state">Copy State to Clipboard</string>
+    <string name="menu_file_paste_state">Paste State from Clipboard</string>
     <string name="menu_file_exit">Exit</string>
     <string name="menu_mode">Mode</string>
     <string name="menu_mode_float">Floating Point</string>

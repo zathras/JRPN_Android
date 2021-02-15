@@ -5,6 +5,8 @@
 	         <item android:id="@+id/file_open" android:title="@string/menu_file_open" />
 	         <item android:id="@+id/file_save" android:title="@string/menu_file_save" />
 	         <item android:id="@+id/file_saveas" android:title="@string/menu_file_saveas" />
+                 <item android:id="@+id/file_copy_state" android:title="@string/menu_file_copy_state" />
+                 <item android:id="@+id/file_paste_state" android:title="@string/menu_file_paste_state" />
 	     </menu>
      </item>
      <item android:id="@+id/mode" android:title="@string/menu_mode">

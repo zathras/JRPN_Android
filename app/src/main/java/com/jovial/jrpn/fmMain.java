@@ -219,7 +219,6 @@ public class fmMain extends AppCompatActivity {
     private void showCopyMenu() {
         PopupMenu menu = new PopupMenu(fmMain.this, tbDisplay);
         menu.getMenuInflater().inflate(R.menu.display_copy_popup, menu.getMenu());
-        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         boolean hasData = !getClipboardText().isEmpty();
         menu.getMenu().findItem(R.id.paste_display_text).setEnabled(hasData);
         menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -534,14 +533,8 @@ public class fmMain extends AppCompatActivity {
                 save_file.setPositiveButton(getString(R.string.button_ok),
                         new DialogInterface.OnClickListener() {
 
-                            public void onClick(DialogInterface dialog,
-                                                int whichButton) {
-                                String filename = input.getText().toString();
-                                if (!filename.toLowerCase(Locale.US).endsWith(".xml")) {
-                                    filename += ".xml";
-                                }
-                                File fullpath = new File(getFilesDir(), filename);
-                                SaveState(fullpath.getPath());
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                saveStateTo(input.getText().toString());
                             }
                         });
                 save_file.setNegativeButton(getString(R.string.button_cancel),
@@ -553,6 +546,12 @@ public class fmMain extends AppCompatActivity {
                             }
                         });
                 save_file.show();
+                return true;
+            case R.id.file_copy_state:
+                copyStateToClipboard();
+                return true;
+            case R.id.file_paste_state:
+                pasteStateFromClipboard();
                 return true;
             case R.id.mode_float:
                 cs.setOpMode(CalcState.CalcOpMode.Float);
@@ -666,6 +665,41 @@ public class fmMain extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void saveStateTo(String fileName) {
+        if (fileName.isEmpty()) {
+            Toast t = Toast.makeText(this, "Blank file name", Toast.LENGTH_SHORT);
+            t.show();
+            return;
+        }
+        if (!fileName.toLowerCase(Locale.US).endsWith(".xml")) {
+            fileName += ".xml";
+        }
+        File fullpath = new File(getFilesDir(), fileName);
+        SaveState(fullpath.getPath());
+    }
+
+    private void copyStateToClipboard() {
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        try {
+            ClipData clip = ClipData.newPlainText("JRPN State", cs.Serialize().replaceAll("\r", ""));
+            clipboard.setPrimaryClip(clip);
+        } catch (Exception ex) {
+            Toast t = Toast.makeText(this, ex.toString(), Toast.LENGTH_SHORT);
+            t.show();
+        }
+    }
+
+    private void pasteStateFromClipboard() {
+        String text = getClipboardText();
+        try {
+            cs.Deserialize(text);
+        } catch (Exception ex) {
+            Toast t = Toast.makeText(this, ex.toString(), Toast.LENGTH_SHORT);
+            t.show();
+        }
+        ProcessPacket(c.ProcessKey(-1));
     }
 
     // Load the saved internal Calculator State
