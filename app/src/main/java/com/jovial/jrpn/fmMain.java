@@ -66,6 +66,7 @@ import java.util.Properties;
 public class fmMain extends AppCompatActivity {
 
     static Properties prop;
+    private static String CONFIG_FILE_VERSION = "1.1.3";
     private CalcState cs;
     private Calculator c;
     private TextView lbFKey, lbGKey, lbCarry, lbOverflow, lbPrgm;
@@ -112,16 +113,6 @@ public class fmMain extends AppCompatActivity {
         myToolbar.setMinimumHeight((int) (actionBarHeight * 0.66));
         myToolbar.getLayoutParams().height = (int) (actionBarHeight * 0.66);
 
-        // get the version number
-        String version = "1.1.3";  // Version # of config file, and not BuildConfig.VERSION_NAME;
-        try {
-            version =  getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
-        } catch (Exception e) {
-            // ignore errors
-            Log.e(TAG, "Version: " + e.getMessage());
-        }
-
-
         // set some defaults if there is no config file.
         prop = new Properties();
         prop.setProperty("NumRegisters", "32");
@@ -129,7 +120,7 @@ public class fmMain extends AppCompatActivity {
         prop.setProperty("SleepDelay", "1500");
         prop.setProperty("SyncConversions", "true");
         prop.setProperty("HomeURL", "http://jrpn.jovial.com");
-        prop.setProperty("Version", version);
+        prop.setProperty("Version", CONFIG_FILE_VERSION);
         prop.setProperty("HelpURL",
                 "http://jrpn.jovial.com/UsersGuide.html");
         prop.setProperty("Orientation", "Auto");
@@ -145,7 +136,7 @@ public class fmMain extends AppCompatActivity {
         }
 
         // doesn't exist or not the right version, then create/overwrite from a prototype file
-        if (!config.exists() || !prop.getProperty("Version").equals(version)) {
+        if (!config.exists() || !prop.getProperty("Version").equals(CONFIG_FILE_VERSION)) {
             BufferedWriter sw = null;
             String line;
 
