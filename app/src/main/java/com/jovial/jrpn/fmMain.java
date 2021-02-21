@@ -113,7 +113,7 @@ public class fmMain extends AppCompatActivity {
         myToolbar.getLayoutParams().height = (int) (actionBarHeight * 0.66);
 
         // get the version number
-        String version = BuildConfig.VERSION_NAME;
+        String version = "1.1.3";  // Version # of config file, and not BuildConfig.VERSION_NAME;
         try {
             version =  getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
         } catch (Exception e) {
