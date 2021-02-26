@@ -24,6 +24,7 @@ public class fmConfigure extends AppCompatActivity {
     EditText sleep;
     EditText num_reg;
     Spinner orientation;
+    Spinner floatFormat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,11 @@ public class fmConfigure extends AppCompatActivity {
                 R.array.orientation, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         orientation.setAdapter(adapter);
+        floatFormat = (Spinner) findViewById(R.id.float_format);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
+            R.array.float_format, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        floatFormat.setAdapter(adapter2);
 
         // populate widgets with existing values
         prog_mem = (EditText) findViewById(R.id.prog_mem);
@@ -68,6 +74,19 @@ public class fmConfigure extends AppCompatActivity {
                 orientation.setSelection(2);
                 break;
         }
+
+        switch(fmMain.prop.getProperty("FloatFormat"))
+        {
+            case "Default":
+                floatFormat.setSelection(0);
+                break;
+            case "American":
+                floatFormat.setSelection(1);
+                break;
+            case "European":
+                floatFormat.setSelection(2);
+                break;
+        }
     }
 
     // write the configuration file back
@@ -79,6 +98,7 @@ public class fmConfigure extends AppCompatActivity {
         fmMain.prop.setProperty("SleepDelay", sleep.getText().toString());
         fmMain.prop.setProperty("NumRegisters", num_reg.getText().toString());
         fmMain.prop.setProperty("Orientation", orientation.getSelectedItem().toString());
+        fmMain.prop.setProperty("FloatFormat", floatFormat.getSelectedItem().toString());
 
         File config = new File(getFilesDir(), "jrpn.config");
         try {

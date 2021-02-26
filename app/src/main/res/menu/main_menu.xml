@@ -17,8 +17,8 @@
 				<item android:id="@+id/mode_dec" android:title="@string/menu_mode_dec" />
 		        <item android:id="@+id/mode_oct" android:title="@string/menu_mode_oct" />
 		        <item android:id="@+id/mode_bin" android:title="@string/menu_mode_bin" />
-			    <item android:id="@+id/mode_si" android:title="@string/menu_mode_si"/>
-		     </group>
+                        <item android:id="@+id/mode_si" android:title="@string/menu_mode_si"/>
+		 </group>
 	     </menu>
      </item>
      <item android:id="@+id/options" android:title="@string/menu_opt">

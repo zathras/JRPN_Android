@@ -124,6 +124,7 @@ public class fmMain extends AppCompatActivity {
         prop.setProperty("HelpURL",
                 "http://jrpn.jovial.com/UsersGuide.html");
         prop.setProperty("Orientation", "Auto");
+        prop.setProperty("FloatFormat", "Default");
 
         File config = new File(getFilesDir(), "jrpn.config");
         try {
@@ -191,6 +192,7 @@ public class fmMain extends AppCompatActivity {
         cs = new CalcState();
         c = new Calculator(cs);
         LoadState();
+        c.setFloatFormatLocale();
 
         initScreen();
 
@@ -466,6 +468,14 @@ public class fmMain extends AppCompatActivity {
         }
 
         super.onPause();
+    }
+
+    // When made visible, including when the configure screen is dismissed
+    @Override
+    protected void onStart() {
+        super.onStart();
+        c.setFloatFormatLocale();
+        ProcessPacket(c.ProcessKey(-1));
     }
 
     // being killed off

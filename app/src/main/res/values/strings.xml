@@ -63,13 +63,19 @@
     <string name="config_sleep">Sleep Delay</string>
     <string name="config_reg">Number of Registers</string>
     <string name="config_orient">Orientation</string>
-    <string name="config_save_success">You must restart the application before these changes take effect</string>
+    <string name="config_float_format">Float Format</string>
+    <string name="config_save_success">You must restart the application before most of these changes take effect.</string>
     <string name="config_title">Configuration</string>
     <string name="config_save_failure">Error! Could not save configuration changes\n</string>
     <string-array name="orientation">
         <item>Auto</item>
         <item>Landscape</item>
         <item>Portrait</item>
+    </string-array>
+    <string-array name="float_format">
+        <item>Default</item>
+        <item>American</item>
+        <item>European</item>
     </string-array>
 
 </resources>

@@ -1,11 +1,13 @@
 package com.jovial.jrpn;
 
 import java.text.NumberFormat;
+import java.util.Locale;
 
 // This is the calculator "engine"... it processes keystrokes and
 // performs the appropriate functions
 public class Calculator {
 
+    private Locale floatFormatLocale = null;
     private final static int F_KEY = 128;
     private final static int G_KEY = 256;
 
@@ -69,7 +71,7 @@ public class Calculator {
                 k.KeyCHS.index() + G_KEY), FnXeq0(k.KeyAdd.index() + G_KEY),
             
         // a pseudo key for refreshing the screen
-        Refresh(-1);
+                Refresh(-1);
         
         // make a java enum a bit more civilized
         private int pindex;
@@ -3198,6 +3200,19 @@ public class Calculator {
         return FormatDisplay(cs.getOpMode(), 0);
     }
 
+    public void setFloatFormatLocale() {
+        String v = fmMain.prop.getProperty("FloatFormat");
+        floatFormatLocale = null;
+        if ("American".equals(v)) {
+            floatFormatLocale = Locale.US;
+        } else if ("European".equals(v)) {
+            floatFormatLocale = Locale.GERMAN;
+        }
+        if (floatFormatLocale == null) {
+            floatFormatLocale = Locale.getDefault();
+        }
+    }
+
     // Format the value of the X register for the display using the given OpMode
     private String FormatDisplay(CalcState.CalcOpMode Op, int Position) {
         String DisplayText, temp;
@@ -3213,19 +3228,18 @@ public class Calculator {
                 // it
                 Formatter = "%1$.13e";
             } else {
-                Formatter = "%1$." + cs.getFloatPrecision() + "f";
+                Formatter = "%1$,." + cs.getFloatPrecision() + "f";
             }
-            DisplayText = String.format(Formatter, cs.getStack().getX()
+            DisplayText = String.format(floatFormatLocale, Formatter, cs.getStack().getX()
                     .getFVal());
             // Check to see if we need to automatically switch to scientific
             // notation
             // Note: this is for display purposes only, the float/EEX mode does
             // not change
             if (DisplayText.length() > 37
-                    || (DisplayText.equals("0."
-                            + StringStrDup('0', cs.getFloatPrecision())) && cs
-                            .getStack().getX().getFVal() != 0.0)) {
-                DisplayText = String.format("%1$.13e", cs.getStack().getX()
+                    || (DisplayText.equals(String.format(floatFormatLocale, Formatter, 0.0))
+                            && cs .getStack().getX().getFVal() != 0.0)) {
+                DisplayText = String.format(floatFormatLocale, "%1$.13e", cs.getStack().getX()
                         .getFVal());
             }
             break;
