@@ -113,7 +113,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/config_float_format"
-            android:id="@+id/textView9"
+            android:id="@+id/textView10"
             android:layout_column="0" />
 
         <Spinner
