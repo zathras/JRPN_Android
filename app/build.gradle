@@ -19,7 +19,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 29
         versionCode 8
-        versionName "1.1.4"
+        versionName "1.1.4.2"   // .2 is for F-Droid; version # must match tag
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         buildConfigField "long", "BUILD_TIMESTAMP", System.currentTimeMillis() + "L"
     }
