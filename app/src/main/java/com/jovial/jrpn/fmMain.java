@@ -54,6 +54,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.FilenameFilter;
@@ -119,10 +120,7 @@ public class fmMain extends AppCompatActivity {
         prop.setProperty("PrgmMemoryLines", "302");
         prop.setProperty("SleepDelay", "1500");
         prop.setProperty("SyncConversions", "true");
-        prop.setProperty("HomeURL", "http://jrpn.jovial.com");
         prop.setProperty("Version", CONFIG_FILE_VERSION);
-        prop.setProperty("HelpURL",
-                "http://jrpn.jovial.com/UsersGuide.html");
         prop.setProperty("Orientation", "Auto");
         prop.setProperty("FloatFormat", "Default");
 
@@ -135,6 +133,10 @@ public class fmMain extends AppCompatActivity {
             // ignore errors
             Log.e(TAG, "Properties: " + e.getMessage());
         }
+        // Stomp on any legacy values.
+        prop.setProperty("HomeURL", "http://legacy.jrpn.jovial.com");
+        prop.setProperty("HelpURL",
+                "http://legacy.jrpn.jovial.com/UsersGuide.html");
 
         // doesn't exist or not the right version, then create/overwrite from a prototype file
         if (!config.exists() || !prop.getProperty("Version").equals(CONFIG_FILE_VERSION)) {
@@ -205,8 +207,50 @@ public class fmMain extends AppCompatActivity {
             }
         }));
 
+        if (!"yes".equals(prop.getProperty("naggingDone"))) {
+            nagAboutFlutterVersion();
+        }
+    }
+
+    void nagAboutFlutterVersion() {
         // Note that doResize() will be called for us after onCreate()
         // is finished.
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("New version of JRPN");
+        builder.setMessage(
+                "Hi.  Sorry to disturb you, but I wanted to let you know that there's a new version "
+                        + "of JRPN.  It's a complete rewrite, and it looks a lot more like the "
+                        + "original.  It's meant to replace the program you're now running, which "
+                        + "is now called \"JRPN Legacy.\"\n"
+                        + "\n"
+                        + "The old version will continue to exist on the Google App Store,"
+                        + "mostly because I can't be certain that it will run on all older phones. "
+                        + "It was written with Google's new app platform, Flutter.\n"
+                        + "\n"
+                        + "Just look for JRPN on the Google app store, or check out "
+                        + "https://jrpn.jovial.com/."
+        );
+        builder.setIcon(android.R.drawable.ic_dialog_alert);
+        builder.setPositiveButton("See Message Later",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+        builder.setNegativeButton("Dismiss Message Forever",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        prop.setProperty("naggingDone", "yes");
+                        File config = new File(getFilesDir(), "jrpn.config");
+                        try {
+                            prop.storeToXML(new FileOutputStream(config), null);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+        builder.show();
     }
 
     private void showCopyMenu() {

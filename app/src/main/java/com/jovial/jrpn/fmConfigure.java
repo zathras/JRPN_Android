@@ -90,7 +90,7 @@ public class fmConfigure extends AppCompatActivity {
     }
 
     // write the configuration file back
-    public void Save(View v)
+    public void Save(View ignored)
     {
         // Warning!  There is no sanity checking going on here!
         fmMain.prop.setProperty("PrgmMemoryLines", prog_mem.getText().toString());
